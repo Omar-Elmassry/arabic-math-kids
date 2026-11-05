@@ -682,13 +682,25 @@ $('#sfxBtn').onclick = () => { app.sfx = !app.sfx; save(); renderSfx(); SFX.clic
 /* ---------- voice ---------- */
 let arVoice = null;
 const hasTTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+/* Android browsers often list voices late or not at all, even when Arabic is installed.
+   There we still try to speak with lang="ar" and let the system pick its Arabic voice. */
+const isAndroid = /Android/i.test(navigator.userAgent);
+let ttsTry = false;
 function pickVoice() {
   if (!hasTTS) return;
-  const vs = speechSynthesis.getVoices();
+  let vs = [];
+  try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
   arVoice = vs.find(v => /^ar[-_]EG/i.test(v.lang)) || vs.find(v => /^ar/i.test(v.lang)) || null;
-  $('#muteBtn').hidden = !arVoice;
+  ttsTry = !arVoice && isAndroid;
+  $('#muteBtn').hidden = !(arVoice || ttsTry);
 }
-if (hasTTS) { pickVoice(); if (speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', pickVoice); }
+if (hasTTS) {
+  pickVoice();
+  if (speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', pickVoice);
+  let tries = 0;
+  const vT = setInterval(() => { pickVoice(); if (arVoice || ++tries > 20) clearInterval(vT); }, 500);
+  document.addEventListener('pointerdown', () => { if (!arVoice) pickVoice(); }, true);
+}
 function speechText(t) {
   return t.replace(/÷/g, ' مقسوم على ').replace(/×/g, ' في ').replace(/−/g, ' ناقص ')
     .replace(/\+/g, ' زائد ').replace(/=/g, ' يساوي ')
@@ -705,17 +717,20 @@ function talk(pup, ms) {
 }
 function speakText(t, pup) {
   if (!t) return;
-  if (!arVoice || app.muted) { talk(pup, Math.min(2600, 400 + t.length * 30)); return; }
+  if ((!arVoice && !ttsTry) || app.muted) { talk(pup, Math.min(2600, 400 + t.length * 30)); return; }
   try {
-    speechSynthesis.cancel();
+    // cancel() right before speak() can swallow the new sentence on Android, so cancel only when needed
+    const busy = speechSynthesis.speaking || speechSynthesis.pending;
+    if (busy) speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(speechText(t));
-    u.voice = arVoice; u.lang = arVoice.lang; u.rate = 0.9;
+    if (arVoice) { u.voice = arVoice; u.lang = arVoice.lang; } else u.lang = 'ar';
+    u.rate = 0.9;
     if (pup) {
       talk(pup, 15000);
       const stop = () => { clearTimeout(talkTimers.get(pup)); pup.classList.remove('talking'); };
       u.onend = stop; u.onerror = stop;
     }
-    speechSynthesis.speak(u);
+    if (busy) setTimeout(() => speechSynthesis.speak(u), 80); else speechSynthesis.speak(u);
   } catch (e) {}
 }
 function renderMute() { $('#muteBtn').classList.toggle('off', app.muted); }

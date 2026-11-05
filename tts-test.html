@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>اختبار الصوت العربي</title>
+<style>
+:root{color-scheme:light;--ink:#2B2D42;--muted:#6B6F85;--ok:#1E9E50;--bad:#D62839;--edge:#E8DFCF}
+*{box-sizing:border-box}
+body{margin:0;background:#FFF7EA;color:var(--ink);font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-size:18px;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}
+h1{margin:0 0 4px;font-size:26px}
+.box{background:#fff;border:2px solid var(--edge);border-radius:16px;padding:12px 14px;margin-top:14px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+button{font:inherit;font-weight:700;min-height:52px;padding:8px 16px;border-radius:14px;border:2px solid #1557B0;background:#1D6FE0;color:#fff;cursor:pointer}
+button.alt{background:#fff;color:#1557B0}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
+#voices{direction:ltr;text-align:left;font-family:Consolas,monospace;font-size:14px;max-height:280px;overflow:auto;white-space:pre-wrap;background:#F7F7FA;border-radius:10px;padding:8px}
+#log{direction:ltr;text-align:left;font-family:Consolas,monospace;font-size:14px;white-space:pre-wrap;background:#F7F7FA;border-radius:10px;padding:8px;min-height:60px}
+.ar{background:#DDF7E7}
+small{color:var(--muted)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>🔊 اختبار الصوت العربي</h1>
+  <small>هذه الصفحة تعرض الأصوات التي يعطيها المتصفح للمواقع على هذا الجهاز. اضغط الأزرار بالترتيب، ثم صوّر الشاشة.</small>
+
+  <div class="box" id="summary">جارٍ الفحص…</div>
+
+  <div class="box">
+    <div class="btns">
+      <button id="b1">١) صوت عربي من القائمة</button>
+      <button id="b2">٢) عربي بدون اختيار صوت</button>
+      <button id="b3" class="alt">٣) اختبار بالإنجليزي</button>
+      <button id="b4" class="alt">↻ أعد فحص الأصوات</button>
+    </div>
+  </div>
+
+  <div class="box"><b>ماذا حدث:</b><div id="log"></div></div>
+  <div class="box"><b>كل الأصوات (<span id="count">0</span>):</b><div id="voices"></div></div>
+  <div class="box"><small id="ua"></small></div>
+</main>
+<script>
+(() => {
+  const $ = s => document.querySelector(s);
+  const has = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+  const AR_TEXT = 'مرحبًا! أنا بوبو الخبّاز. سبعة عشر مقسومة على ثلاثة تساوي خمسة، والباقي اثنان.';
+  const log = m => { $('#log').textContent += new Date().toLocaleTimeString() + '  ' + m + '\n'; };
+  $('#ua').textContent = navigator.userAgent;
+  let arVoices = [];
+  function scan(src) {
+    if (!has) { $('#summary').innerHTML = '<span class="bad">❌ هذا المتصفح لا يدعم القراءة بالصوت أبدًا.</span>'; return; }
+    const vs = speechSynthesis.getVoices();
+    arVoices = vs.filter(v => /^ar/i.test(v.lang));
+    $('#count').textContent = vs.length;
+    $('#voices').innerHTML = vs.map(v => `<div class="${/^ar/i.test(v.lang) ? 'ar' : ''}">${v.lang}  |  ${v.name}${v.localService ? '' : '  (online)'}${v.default ? '  [default]' : ''}</div>`).join('') || '(empty list)';
+    $('#summary').innerHTML = vs.length === 0
+      ? '<span class="bad">⚠️ المتصفح لم يعطِ أي صوت (القائمة فارغة).</span> جرّب الزر ٢.'
+      : arVoices.length
+        ? `<span class="ok">✅ يوجد ${arVoices.length} صوت عربي:</span> ${arVoices.map(v => v.name).join('، ')}`
+        : `<span class="bad">❌ يوجد ${vs.length} صوت، لكن لا يوجد صوت عربي في القائمة.</span> جرّب الزر ٢.`;
+    log(`scan (${src}): ${vs.length} voices, ${arVoices.length} Arabic`);
+  }
+  function speak(text, opts, label) {
+    if (!has) return;
+    try {
+      if (speechSynthesis.speaking || speechSynthesis.pending) speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      if (opts.voice) u.voice = opts.voice;
+      if (opts.lang) u.lang = opts.lang;
+      u.onstart = () => log(label + ': started ✓');
+      u.onend = () => log(label + ': ended');
+      u.onerror = e => log(label + ': ERROR ' + (e.error || ''));
+      setTimeout(() => { speechSynthesis.speak(u); log(label + ': speak() called'); }, 60);
+    } catch (e) { log(label + ': exception ' + e.message); }
+  }
+  $('#b1').onclick = () => {
+    scan('button');
+    if (!arVoices.length) { log('test 1: no Arabic voice in list'); return; }
+    const v = arVoices.find(x => /^ar[-_]EG/i.test(x.lang)) || arVoices[0];
+    speak(AR_TEXT, { voice: v, lang: v.lang }, 'test 1 (' + v.lang + ')');
+  };
+  $('#b2').onclick = () => speak(AR_TEXT, { lang: 'ar' }, 'test 2 (lang=ar)');
+  $('#b3').onclick = () => speak('Hello! This is a sound test.', { lang: 'en-US' }, 'test 3 (en-US)');
+  $('#b4').onclick = () => scan('refresh');
+  if (has) {
+    scan('load');
+    if (speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', () => scan('voiceschanged'));
+    let n = 0; const t = setInterval(() => { if (arVoices.length || ++n > 10) { clearInterval(t); return; } scan('retry ' + n); }, 1000);
+  } else scan('load');
+})();
+</script>
+</body>
+</html>
