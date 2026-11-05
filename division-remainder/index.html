@@ -1,0 +1,1597 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مخبز بوبو للقسمة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --ink:#4A2C1D; --muted:#8A6A55; --cream:#FFF6E9; --card:#FFFFFF; --edge:#F1DCC2;
+  --pink:#F25C7A; --pink-d:#C93D5C; --mint:#22B488; --mint-d:#138A66; --sun:#FFC233; --sun-d:#D99A00;
+  --sky:#3A9BF0; --sky-d:#1F74C2;
+  --ok:#1FA45A; --ok-bg:#DDF7E7; --bad:#E0394F; --bad-bg:#FFE1E5;
+  --cn:#0A8F9C; --cd:#8A3FFC; --cq:#2F6BFF; --cr:#FF7A00; --cp:#E0337A; --r-bg:#FFF0DD;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html,body{margin:0}
+body{
+  color:var(--ink);
+  background:
+    radial-gradient(circle at 12px 12px, rgba(242,92,122,.10) 3px, transparent 4px) 0 0/36px 36px,
+    linear-gradient(#FFF4E4, #FFE7D1);
+  min-height:100vh;
+  font-family:"Baloo Bhaijaan 2","Segoe UI",Tahoma,"Noto Naskh Arabic",Arial,sans-serif;
+  font-size:19px; line-height:1.55; -webkit-tap-highlight-color:transparent; overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:#F25C7A}
+:root{direction:rtl}
+button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+.wrap{max-width:860px;margin:0 auto;padding-block:22px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+svg.ico{width:1em;height:1em;vertical-align:-.15em}
+
+/* ===== awning header ===== */
+.awning{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;padding:8px 12px 10px;
+  background:repeating-linear-gradient(90deg,#F25C7A 0 36px,#FFFFFF 36px 72px);}
+.awning::after{content:"";position:absolute;left:0;right:0;bottom:-15px;height:16px;pointer-events:none;
+  background:
+    radial-gradient(circle at 18px 0,#F25C7A 17px,transparent 18px) 0 0/72px 16px repeat-x,
+    radial-gradient(circle at 54px 0,#FFFFFF 17px,transparent 18px) 0 0/72px 16px repeat-x;
+  filter:drop-shadow(0 3px 2px rgba(120,40,40,.15));}
+.sign{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:8px;background:#fff;border-radius:20px;padding:6px 8px;box-shadow:0 4px 0 #E9CDB0,0 6px 14px rgba(0,0,0,.08)}
+.sign .ttl{flex:1;min-width:0;line-height:1.15}
+.sign .ttl b{display:block;font-size:21px;color:var(--pink-d)}
+.sign .ttl small{color:var(--muted);font-weight:700;font-size:14px}
+.ibtn{width:46px;height:46px;flex:none;border-radius:14px;border:0;background:#FFF1E2;font-size:22px;display:grid;place-items:center;box-shadow:0 3px 0 #EBCFB2}
+.ibtn:active{transform:translateY(3px);box-shadow:none}
+.ibtn.off{opacity:.45}
+.ibtn svg{width:26px;height:26px}
+.starpill{display:flex;align-items:center;gap:4px;background:#FFF6D6;border-radius:999px;padding:4px 12px;font-weight:800;font-size:20px;box-shadow:0 3px 0 #F1D98A}
+.starpill svg{width:24px;height:24px}
+.starpill.bump{animation:bump .5s}
+
+/* ===== buttons ===== */
+.btn{border:0;border-radius:18px;padding:8px 20px;min-height:56px;font-weight:800;font-size:19px;color:#fff;
+  background:linear-gradient(#FF8FB0,#F25C7A);box-shadow:0 5px 0 var(--pink-d),0 8px 14px rgba(0,0,0,.12);transition:transform .08s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--pink-d)}
+.btn.mint{background:linear-gradient(#5BE0B8,#22B488);box-shadow:0 5px 0 var(--mint-d),0 8px 14px rgba(0,0,0,.12)}
+.btn.sun{background:linear-gradient(#FFE07A,#FFC233);color:#5A3A00;box-shadow:0 5px 0 var(--sun-d),0 8px 14px rgba(0,0,0,.12)}
+.btn.sky{background:linear-gradient(#7CC8FF,#3A9BF0);box-shadow:0 5px 0 var(--sky-d),0 8px 14px rgba(0,0,0,.12)}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:0 5px 0 #E7D3BC}
+.btn.big{font-size:24px;min-height:66px;padding:10px 30px}
+.btn:disabled{opacity:.4;cursor:default;transform:none}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+.card{background:var(--card);border-radius:26px;padding:16px;box-shadow:0 6px 0 var(--edge),0 10px 24px rgba(107,62,38,.10)}
+
+/* colored numbers */
+.cn{color:var(--cn)} .cd{color:var(--cd)} .cq{color:var(--cq)} .cr{color:var(--cr)} .cp{color:var(--cp)}
+b.cn,b.cd,b.cq,b.cr,b.cp{font-weight:800}
+
+/* ===== mascot ===== */
+.guide{display:flex;gap:10px;align-items:flex-start;margin:6px 0 14px}
+.pupwrap{flex:none;width:86px;height:86px}
+.pup{width:100%;height:100%;overflow:visible}
+.pup .eyes{transform-box:fill-box;transform-origin:center;animation:blink 4.5s infinite}
+.pup .ear-l{transform-box:fill-box;transform-origin:50% 10%;animation:earL 3s ease-in-out infinite}
+.pup .ear-r{transform-box:fill-box;transform-origin:50% 10%;animation:earR 3s ease-in-out infinite}
+.pup .m-talk,.pup .m-o,.pup .m-sad,.pup .brow{display:none}
+.pup.st-think .m-happy,.pup.st-sad .m-happy,.pup.st-wow .m-happy{display:none}
+.pup.st-think .m-o,.pup.st-wow .m-o{display:inline}
+.pup.st-think .pupils{transform:translate(2px,-3px)}
+.pup.st-sad .m-sad,.pup.st-sad .brow{display:inline}
+.pup.st-wow .m-o{transform-box:fill-box;transform-origin:center;transform:scale(1.5)}
+.pup.talking .m-happy,.pup.talking .m-o,.pup.talking .m-sad{display:none}
+.pup.talking .m-talk{display:inline;transform-box:fill-box;transform-origin:50% 0;animation:talk .2s infinite alternate}
+.guide.dance .pupwrap{animation:dance .9s}
+.guide.hop .pupwrap{animation:hop .45s}
+.bubble{position:relative;flex:1;background:#fff;border-radius:22px;padding:10px 16px;line-height:1.85;min-height:66px;cursor:pointer;
+  box-shadow:0 5px 0 var(--edge),0 8px 18px rgba(107,62,38,.08)}
+.bubble::before{content:"";position:absolute;inset-inline-start:-10px;top:24px;border:10px solid transparent;border-inline-end-color:#fff;border-inline-start:0}
+.bubble.pop{animation:pop .3s}
+.bubble .say-ico{float:left;opacity:.35;font-size:16px;margin-inline-start:6px}
+
+/* ===== home ===== */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero .pupwrap{width:150px;height:150px}
+.hero h2{margin:4px 0 0;font-size:34px;color:var(--pink-d);line-height:1.2}
+.hero p{margin:4px 0 10px;color:var(--muted);font-weight:700}
+.hero .bubble{max-width:560px;margin-top:6px}
+.hero .bubble::before{display:none}
+.path{position:relative;margin-top:22px;display:flex;flex-direction:column;gap:16px}
+.lvcard{display:flex;align-items:center;gap:14px;width:min(100%,520px);border:0;background:#fff;border-radius:26px;padding:12px 14px;text-align:start;
+  box-shadow:0 6px 0 var(--edge),0 10px 22px rgba(107,62,38,.10);transition:transform .1s}
+.lvcard:nth-child(even){align-self:flex-end}
+.lvcard:active{transform:translateY(4px)}
+.lvcard.locked{filter:grayscale(.85);opacity:.75}
+.lvicon{flex:none;width:68px;height:68px;border-radius:22px;display:grid;place-items:center}
+.lvicon svg{width:48px;height:48px}
+.c1{background:#FFE7C2}.c2{background:#E6F4FF}.c3{background:#F1E8FF}.c4{background:#E1F8EE}.c5{background:#DDF1FF}
+.lvtxt{flex:1;line-height:1.3}
+.lvtxt b{display:block;font-size:21px}
+.lvtxt small{color:var(--muted);font-weight:700;font-size:15px}
+.lvstate{flex:none;font-size:26px;width:40px;text-align:center}
+.lvstate svg{width:32px;height:32px}
+
+/* level heading */
+.lvhead{display:flex;align-items:center;gap:10px;justify-content:center;margin:0 0 6px}
+.lvhead .num{width:40px;height:40px;border-radius:50%;background:var(--pink);color:#fff;font-weight:800;display:grid;place-items:center;font-size:22px;box-shadow:0 3px 0 var(--pink-d)}
+.lvhead h2{margin:0;font-size:28px}
+
+/* problem ticket */
+.ticket{position:relative;background:#FFFDF6;border:3px dashed #EBC9A0;border-radius:22px;padding:10px 12px 12px;margin-bottom:6px}
+.bigeq{font-size:42px;font-weight:800;text-align:center;line-height:1.25}
+.steppers{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:4px}
+.stp{display:flex;align-items:center;gap:6px;background:#FFF1E2;border-radius:16px;padding:4px 8px}
+.stp .lbl{font-size:14px;color:var(--muted);font-weight:800}
+.stp button{width:42px;height:42px;border-radius:12px;border:0;background:#fff;font-size:24px;font-weight:800;line-height:1;box-shadow:0 3px 0 #EBCFB2}
+.stp button:active{transform:translateY(3px);box-shadow:none}
+.stp b{min-width:34px;text-align:center;font-size:26px}
+.ticket .btns{margin-top:8px;gap:8px}
+.ticket .btn{min-height:46px;font-size:16px;padding:6px 14px}
+
+/* ===== level 1: tray, plates, monster ===== */
+.ck{display:inline-block;width:36px;height:36px;line-height:0}
+.ck svg{width:100%;height:100%;display:block}
+.tray{position:relative;background:linear-gradient(#FFE6BF,#FFD394);border:5px solid #E9B26A;border-radius:28px;padding:30px 10px 12px;box-shadow:inset 0 -6px 0 rgba(201,130,53,.25)}
+.tray .tag{position:absolute;top:-16px;right:50%;transform:translateX(50%);background:#fff;border-radius:999px;padding:2px 14px;font-weight:800;box-shadow:0 3px 0 #E9B26A;white-space:nowrap}
+.pile{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;min-height:44px}
+.pile .ck{touch-action:none;cursor:grab;transition:transform .15s}
+.pile .ck:hover{transform:scale(1.12) rotate(-8deg)}
+.pile .ck.lifted{opacity:.25}
+.tray.rem{border-color:var(--cr);background:linear-gradient(#FFF0DD,#FFE0B8)}
+.ck.glow{animation:glow .8s infinite alternate}
+.flying{position:fixed;z-index:80;pointer-events:none;margin:0;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.plates{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:18px}
+.plate{width:112px;min-height:112px;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#F3F7FF 59% 66%,var(--rim,#9CC6FF) 67% 100%);
+  display:flex;align-items:center;justify-content:center;position:relative;padding:22px;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 0 rgba(0,0,0,.08)}
+.plate.tall{border-radius:40px;background:#fff;border:6px solid var(--rim,#9CC6FF);padding:12px 8px 20px}
+.plate.hover{transform:scale(1.08);box-shadow:0 0 0 5px #FFE07A}
+.plate .pc{display:flex;flex-wrap:wrap;justify-content:center;gap:1px}
+.plate .pc .ck{width:22px;height:22px}
+.plate .cnt{position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);background:var(--cq);color:#fff;font-weight:800;border-radius:999px;min-width:36px;height:32px;line-height:32px;text-align:center;padding:0 8px;box-shadow:0 3px 0 #1E4FD0}
+.ck.pop{animation:pop .3s}
+.monster{margin:26px auto 0;display:flex;flex-direction:column;align-items:center;width:200px;border-radius:26px;padding:8px;transition:transform .15s}
+.monster svg{width:130px;height:120px;overflow:visible}
+.monster .name{font-weight:800;background:#F1E8FF;color:#6A2FC4;border-radius:999px;padding:0 14px}
+.monster.hover{transform:scale(1.08)}
+.monster .meyes,.monster .mopen,.monster .msad{display:none}
+.monster.awake .meyes,.monster.open .meyes,.monster.sad .meyes{display:inline}
+.monster.awake .msleep,.monster.open .msleep,.monster.sad .msleep,
+.monster.awake .mzzz,.monster.open .mzzz,.monster.sad .mzzz{display:none}
+.monster.open .mclosed,.monster.hover.awake .mclosed{display:none}
+.monster.open .mopen,.monster.hover.awake .mopen{display:inline}
+.monster.sad .mclosed{display:none}.monster.sad .msad{display:inline}
+.monster .mzzz text{animation:zzz 2s infinite}
+.monster.chomp svg{animation:chomp .35s}
+.monster .mbelly-n{font-weight:800}
+.counters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.ctr{background:#fff;border-radius:16px;padding:4px 14px;font-weight:800;box-shadow:0 4px 0 var(--edge)}
+.ctr b{font-size:26px}
+.ctr.q b{color:var(--cq)} .ctr.r b{color:var(--cr)} .ctr.d b{color:var(--cd)} .ctr.n b{color:var(--cn)}
+.tip{text-align:center;color:var(--muted);font-weight:700;font-size:15px;margin-top:8px}
+
+/* ===== level 2: number line ===== */
+.nl{background:linear-gradient(#E9F6FF,#fff);border-radius:26px;padding:8px 0;overflow:hidden;box-shadow:0 6px 0 var(--edge)}
+.nl svg{display:block;overflow:visible}
+.lm{font-size:16px;font-weight:800;fill:var(--cp);text-anchor:middle}
+.lg{font-size:12px;fill:#B09A8A;text-anchor:middle;font-weight:700}
+.ln{fill:#fff;font-weight:800;font-size:17px;text-anchor:middle}
+.arc{fill:none;stroke:var(--cq);stroke-width:3.5;stroke-linecap:round;stroke-dasharray:2 7}
+.arc.over{stroke:var(--bad);stroke-dasharray:8 6}
+.xmark{fill:var(--bad);font-size:24px;font-weight:800;text-anchor:middle}
+.bt{fill:#fff;font-size:14px;font-weight:800;text-anchor:middle}
+.gl{fill:var(--cr);font-weight:800;font-size:18px;text-anchor:middle}
+
+/* ===== level 3: table ===== */
+.rule{background:#FFFBEA;line-height:1.9;box-shadow:0 6px 0 #F2DE9C}
+.ttitle{text-align:center;font-weight:800;font-size:22px;margin:16px 0 8px}
+.board{background:#7A4A2A;border-radius:22px;padding:10px;box-shadow:0 6px 0 #5A3418, inset 0 2px 0 rgba(255,255,255,.15)}
+.mrow{display:grid;grid-template-columns:repeat(9,1fr);gap:5px}
+.mrow + .mrow{margin-top:6px}
+.mc{min-height:52px;display:grid;place-items:center;font-size:22px;font-weight:800;border:0;border-radius:14px;padding:0;background:#FFF6E9}
+.mrow.top .mc{background:#E6EEFF;color:var(--cq);min-height:42px;font-size:20px}
+.mc.hid{background:#FFE7C2;color:#C69863}
+.mc.ok{background:var(--ok-bg);color:var(--ok)}
+.mc.bad{background:var(--bad-bg);color:var(--bad)}
+.mc.off{opacity:.4}
+.mc.sel{box-shadow:0 0 0 4px #FFE07A, inset 0 0 0 3px var(--cp);color:var(--cp);transform:scale(1.06)}
+.mc.next{animation:pulse 1.1s infinite}
+.mc.flip{animation:flip .4s}
+.under{text-align:center;font-weight:800;color:var(--cp);margin-top:8px;min-height:30px}
+.fill{margin-top:14px;text-align:center}
+.fline{font-size:25px;font-weight:800;line-height:2.3}
+
+/* fields + pad */
+.field{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;vertical-align:middle;min-width:92px;min-height:72px;border:4px solid #EAD7C0;border-radius:20px;background:#fff;font-size:36px;font-weight:800;padding:0 12px;line-height:1.05}
+.field small{font-size:13px;color:var(--muted);font-weight:800}
+.field.q span{color:var(--cq)} .field.r span{color:var(--cr)}
+.field.active{border-color:var(--sky);box-shadow:0 0 0 5px rgba(58,155,240,.22)}
+.field.right{border-color:var(--ok);background:var(--ok-bg)}
+.field.wrong{border-color:var(--bad);animation:shake .4s}
+.pad{direction:ltr;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:310px;margin:16px auto 0}
+.key{min-height:60px;font-size:30px;font-weight:800;border-radius:18px;border:0;background:#fff;box-shadow:0 5px 0 #E7D3BC}
+.key:active{transform:translateY(4px);box-shadow:0 1px 0 #E7D3BC}
+.key.ok{background:linear-gradient(#5BE0B8,#22B488);color:#fff;box-shadow:0 5px 0 var(--mint-d)}
+.key.del{background:#FFF1E2}
+.pad.off{opacity:.35;pointer-events:none}
+
+/* summary */
+.sum{background:#fff;border-radius:24px;padding:14px;text-align:center;margin-top:18px;animation:pop .35s;box-shadow:0 0 0 4px var(--ok),0 8px 0 4px #BFEBD0}
+.sum .eq{font-size:32px;font-weight:800}
+.sum .chk{color:var(--muted);margin-top:2px;font-weight:700}
+.sum .extra{margin-top:6px;font-weight:800}
+.nextlv{display:flex;justify-content:center;margin-top:24px}
+
+/* ===== level 4: orders ===== */
+.order{display:flex;gap:12px;align-items:center;background:#FFFDF6;border:3px dashed #EBC9A0;border-radius:22px;padding:10px 12px}
+.order .cust{flex:none;width:76px;height:76px;border-radius:50%;background:#FFF1E2;display:grid;place-items:center}
+.order .cust svg{width:62px;height:62px}
+.order .cust.happy{animation:dance .9s}
+.order .otext{line-height:1.8;font-weight:700}
+.order .otext .who{display:block;font-weight:800;color:var(--pink-d)}
+.ptop{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.tag{background:#FFF1E2;border-radius:999px;padding:2px 12px;font-weight:800;font-size:16px}
+.dots{display:flex;gap:6px;align-items:center;font-size:15px;color:var(--muted);font-weight:800}
+.dot{width:16px;height:16px;border-radius:50%;background:#F1DCC2}
+.dot.done{background:var(--ok)} .dot.cur{background:var(--sky);box-shadow:0 0 0 3px rgba(58,155,240,.25)}
+.answers{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin-top:12px}
+.answers .and{font-size:22px;font-weight:800;color:var(--muted)}
+.hint{background:#FFFBEA;border-radius:16px;padding:8px 12px;margin-top:10px;line-height:1.9;box-shadow:0 4px 0 #F2DE9C}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{border-radius:10px;padding:0 10px;font-weight:800;font-size:16px}
+.chip.ok{background:var(--ok-bg);color:var(--ok)} .chip.bad{background:var(--bad-bg);color:var(--bad)}
+
+/* ===== level 5: bubbles ===== */
+.gamebar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.gq{font-size:30px;font-weight:800}
+.gstats{display:flex;gap:14px;font-weight:800}
+.gstats b{font-size:24px;color:var(--pink-d)}
+.timer{width:100%;height:14px;border-radius:999px;background:#F1E4D4;overflow:hidden}
+.timer i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#FFC233,#22B488);border-radius:999px;transition:width 1s linear}
+.pond{position:relative;height:min(62vh,480px);min-height:360px;margin-top:14px;border-radius:28px;overflow:hidden;
+  background:linear-gradient(#9FD8FF,#DDF2FF 70%,#C9F0DA);box-shadow:0 6px 0 var(--edge)}
+.pond::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40px;background:radial-gradient(ellipse at 50% 100%,#8FDCAF 0 60%,transparent 61%) 0 0/120px 40px repeat-x;pointer-events:none}
+.pondmsg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;z-index:5;padding:16px}
+.pondmsg .res{background:#fff;border-radius:24px;padding:14px 22px;font-weight:800;box-shadow:0 6px 0 var(--edge)}
+.pondmsg .res .big{font-size:46px;color:var(--pink-d);display:block;line-height:1.1}
+.bub{position:absolute;bottom:-100px;width:84px;height:84px;border:0;padding:0;background:none;animation:rise linear forwards;z-index:2}
+.bub span{display:grid;place-items:center;width:100%;height:100%;border-radius:50%;font-size:36px;font-weight:800;color:#1F4E8C;
+  background:radial-gradient(circle at 30% 28%,#fff 0 10%,rgba(255,255,255,.55) 11% 18%,rgba(190,228,255,.55) 40%,rgba(90,170,240,.55) 100%);
+  border:3px solid rgba(255,255,255,.95);box-shadow:inset -6px -8px 14px rgba(40,110,200,.25);animation:sway 2.2s ease-in-out infinite alternate}
+.bub.popped span{animation:burst .25s forwards}
+.bub.nope span{background:#E9E4EE;color:#9A8FA8;animation:shake .4s}
+.plus{position:absolute;font-weight:800;font-size:30px;color:var(--ok);pointer-events:none;animation:floatup .9s forwards;z-index:6}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(60,30,20,.45);z-index:60;display:flex;align-items:center;justify-content:center;padding:16px}
+.modal-card{background:#fff;border-radius:26px;max-width:600px;width:100%;max-height:90vh;overflow:auto;padding:16px;position:relative;text-align:center}
+.modal-card h3{margin:4px 44px 8px;font-size:24px}
+.modal .x{position:absolute;top:10px;inset-inline-end:10px}
+
+/* confetti */
+.conf{position:fixed;top:-14px;width:10px;height:14px;border-radius:3px;z-index:99;pointer-events:none;animation:fall linear forwards}
+
+@keyframes fall{to{transform:translateY(106vh) rotate(720deg)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+@keyframes glow{from{filter:drop-shadow(0 0 2px #ffb347)}to{filter:drop-shadow(0 0 10px #ff8c00);transform:scale(1.12)}}
+@keyframes bump{50%{transform:scale(1.3)}}
+@keyframes hop{40%{transform:translateY(-12px)}}
+@keyframes dance{20%{transform:rotate(-10deg) translateY(-8px)}40%{transform:rotate(10deg)}60%{transform:rotate(-8deg) translateY(-6px)}80%{transform:rotate(6deg)}}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+@keyframes pulse{50%{box-shadow:0 0 0 4px #FFE07A}}
+@keyframes flip{0%{transform:rotateY(90deg)}100%{transform:rotateY(0)}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes earL{50%{transform:rotate(6deg)}}
+@keyframes earR{50%{transform:rotate(-6deg)}}
+@keyframes talk{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+@keyframes chomp{30%{transform:scale(1.15,.85)}60%{transform:scale(.92,1.1)}}
+@keyframes zzz{0%{opacity:0;transform:translateY(4px)}50%{opacity:1}100%{opacity:0;transform:translateY(-8px)}}
+@keyframes rise{to{transform:translateY(calc(-1 * var(--rise,560px)))}}
+@keyframes sway{from{transform:translateX(-10px)}to{transform:translateX(10px)}}
+@keyframes burst{to{transform:scale(1.6);opacity:0}}
+@keyframes floatup{to{transform:translateY(-60px);opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+
+@media (max-width:520px){
+  body{font-size:18px}
+  .sign .ttl b{font-size:18px} .sign .ttl small{font-size:12px}
+  .ibtn{width:42px;height:42px}
+  .starpill{font-size:18px;padding:3px 10px}
+  .bigeq{font-size:34px}
+  .stp button{width:38px;height:38px;font-size:22px}
+  .stp b{font-size:22px;min-width:28px}
+  .stp .lbl{font-size:12px}
+  .pupwrap{width:70px;height:70px}
+  .mc{font-size:17px;min-height:46px;border-radius:10px}
+  .mrow{gap:3px}
+  .plate{width:96px;min-height:96px;padding:18px}
+  .lvicon{width:58px;height:58px} .lvicon svg{width:40px;height:40px}
+  .lvtxt b{font-size:19px}
+  .ck{width:32px;height:32px}
+  .bub{width:74px;height:74px}
+}
+
+/* print worksheet */
+#sheet{display:none}
+@media print{
+  body{background:#fff}
+  body > *:not(#sheet){display:none !important}
+  #sheet{display:block;color:#000;font-size:20px;font-family:Tahoma,Arial,sans-serif}
+  #sheet h2{text-align:center;margin:0 0 8px}
+  .sgrid{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;margin-top:22px}
+  .skey{margin-top:40px;font-size:12px;color:#555;border-top:1px dashed #999;padding-top:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== drawings (reused everywhere) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-cookie" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18" fill="#E9A856" stroke="#C98235" stroke-width="2"/>
+      <circle cx="17" cy="16" r="11" fill="#F4C27A" opacity=".55"/>
+      <ellipse cx="13" cy="14" rx="2.8" ry="2.3" fill="#5A321C"/>
+      <ellipse cx="25" cy="11.5" rx="2.4" ry="2" fill="#5A321C"/>
+      <ellipse cx="28" cy="23" rx="2.8" ry="2.3" fill="#5A321C"/>
+      <ellipse cx="15" cy="27" rx="2.5" ry="2.1" fill="#5A321C"/>
+      <ellipse cx="21" cy="20" rx="2" ry="1.7" fill="#5A321C"/>
+      <circle cx="24" cy="30" r="1.6" fill="#5A321C"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 40 40">
+      <path d="M20 3l5 10.5 11.5 1.6-8.3 8 2 11.4L20 29l-10.2 5.5 2-11.4-8.3-8L15 13.5z" fill="#FFC93C" stroke="#E8A200" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M14 15l4-1" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+    </symbol>
+    <symbol id="i-rabbit" viewBox="0 0 60 70">
+      <ellipse cx="22" cy="16" rx="7" ry="16" fill="#fff" stroke="#E2D2E6" stroke-width="2" transform="rotate(-8 22 16)"/>
+      <ellipse cx="22" cy="17" rx="3.4" ry="11" fill="#FFB5CF" transform="rotate(-8 22 17)"/>
+      <ellipse cx="38" cy="16" rx="7" ry="16" fill="#fff" stroke="#E2D2E6" stroke-width="2" transform="rotate(8 38 16)"/>
+      <ellipse cx="38" cy="17" rx="3.4" ry="11" fill="#FFB5CF" transform="rotate(8 38 17)"/>
+      <ellipse cx="30" cy="59" rx="15" ry="10" fill="#fff" stroke="#E2D2E6" stroke-width="2"/>
+      <circle cx="30" cy="39" r="16" fill="#fff" stroke="#E2D2E6" stroke-width="2"/>
+      <circle cx="24" cy="37" r="2.6" fill="#3A2A30"/><circle cx="36" cy="37" r="2.6" fill="#3A2A30"/>
+      <circle cx="24.8" cy="36.2" r=".9" fill="#fff"/><circle cx="36.8" cy="36.2" r=".9" fill="#fff"/>
+      <circle cx="19" cy="43" r="3" fill="#FFB5CF" opacity=".6"/><circle cx="41" cy="43" r="3" fill="#FFB5CF" opacity=".6"/>
+      <path d="M28 42h4l-2 2.4z" fill="#FF7FA8"/>
+      <path d="M27 46q3 2.4 6 0" stroke="#3A2A30" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="22" cy="67" rx="5" ry="3" fill="#fff" stroke="#E2D2E6" stroke-width="1.5"/>
+      <ellipse cx="38" cy="67" rx="5" ry="3" fill="#fff" stroke="#E2D2E6" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-cat" viewBox="0 0 60 60">
+      <path d="M12 24L14 6l13 10zM48 24L46 6 33 16z" fill="#FFA94D"/>
+      <path d="M15 18l1-7 6 5zM45 18l-1-7-6 5z" fill="#FFD3A8"/>
+      <circle cx="30" cy="33" r="21" fill="#FFB35C"/>
+      <circle cx="22" cy="31" r="3" fill="#3A2A20"/><circle cx="38" cy="31" r="3" fill="#3A2A20"/>
+      <circle cx="23" cy="30" r="1" fill="#fff"/><circle cx="39" cy="30" r="1" fill="#fff"/>
+      <path d="M28 37h4l-2 2.5z" fill="#FF7FA8"/>
+      <path d="M26 41q4 3 8 0" stroke="#3A2A20" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+      <path d="M8 36l10 1M8 41l10-1M52 36l-10 1M52 41l-10-1" stroke="#8A5A2A" stroke-width="1.3" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-bear" viewBox="0 0 60 60">
+      <circle cx="13" cy="14" r="8" fill="#A8743F"/><circle cx="13" cy="14" r="4" fill="#E2B98A"/>
+      <circle cx="47" cy="14" r="8" fill="#A8743F"/><circle cx="47" cy="14" r="4" fill="#E2B98A"/>
+      <circle cx="30" cy="32" r="22" fill="#C48A52"/>
+      <ellipse cx="30" cy="40" rx="11" ry="8" fill="#EBC9A0"/>
+      <circle cx="22" cy="29" r="3" fill="#2A1A10"/><circle cx="38" cy="29" r="3" fill="#2A1A10"/>
+      <circle cx="23" cy="28" r="1" fill="#fff"/><circle cx="39" cy="28" r="1" fill="#fff"/>
+      <ellipse cx="30" cy="36.5" rx="4" ry="3" fill="#2A1A10"/>
+      <path d="M26 42q4 3 8 0" stroke="#2A1A10" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-chick" viewBox="0 0 60 60">
+      <path d="M28 8q2-6 6-2-4 0-3 6z" fill="#FFB800"/>
+      <circle cx="30" cy="33" r="22" fill="#FFD93D"/>
+      <ellipse cx="14" cy="38" rx="6" ry="9" fill="#FFC300" transform="rotate(20 14 38)"/>
+      <ellipse cx="46" cy="38" rx="6" ry="9" fill="#FFC300" transform="rotate(-20 46 38)"/>
+      <circle cx="23" cy="28" r="3" fill="#2A1A10"/><circle cx="37" cy="28" r="3" fill="#2A1A10"/>
+      <circle cx="24" cy="27" r="1" fill="#fff"/><circle cx="38" cy="27" r="1" fill="#fff"/>
+      <path d="M25 34h10l-5 6z" fill="#FF8A1F"/>
+      <circle cx="19" cy="35" r="3" fill="#FF9EB5" opacity=".6"/><circle cx="41" cy="35" r="3" fill="#FF9EB5" opacity=".6"/>
+    </symbol>
+    <symbol id="i-table" viewBox="0 0 48 48">
+      <rect x="3" y="8" width="42" height="32" rx="8" fill="#8A3FFC"/>
+      <rect x="7" y="12" width="10" height="10" rx="3" fill="#E6EEFF"/><rect x="19" y="12" width="10" height="10" rx="3" fill="#E6EEFF"/><rect x="31" y="12" width="10" height="10" rx="3" fill="#E6EEFF"/>
+      <rect x="7" y="26" width="10" height="10" rx="3" fill="#DDF7E7"/><rect x="19" y="26" width="10" height="10" rx="3" fill="#DDF7E7"/><rect x="31" y="26" width="10" height="10" rx="3" fill="#FFE1E5"/>
+    </symbol>
+    <symbol id="i-bubble" viewBox="0 0 48 48">
+      <circle cx="20" cy="26" r="16" fill="#BFE4FF" stroke="#fff" stroke-width="2"/>
+      <circle cx="14" cy="20" r="4" fill="#fff" opacity=".9"/>
+      <circle cx="38" cy="12" r="7" fill="#BFE4FF" stroke="#fff" stroke-width="2"/>
+      <circle cx="36" cy="10" r="2" fill="#fff"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 40 40">
+      <rect x="8" y="17" width="24" height="18" rx="5" fill="#B9A595"/>
+      <path d="M13 17v-4a7 7 0 0114 0v4" stroke="#B9A595" stroke-width="4" fill="none"/>
+      <circle cx="20" cy="26" r="3" fill="#fff"/>
+    </symbol>
+    <symbol id="i-home" viewBox="0 0 32 32">
+      <path d="M5 15L16 6l11 9" stroke="#F25C7A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 14v12h16V14" fill="#FFD394" stroke="#C98235" stroke-width="2" stroke-linejoin="round"/>
+      <rect x="13.5" y="18" width="5" height="8" rx="1.5" fill="#F25C7A"/>
+    </symbol>
+    <symbol id="i-voice" viewBox="0 0 32 32">
+      <path d="M5 12h5l7-6v20l-7-6H5z" fill="#3A9BF0"/>
+      <path d="M21 11q4 5 0 10M24 8q7 8 0 16" stroke="#3A9BF0" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-note" viewBox="0 0 32 32">
+      <path d="M12 23V8l14-3v15" stroke="#F25C7A" stroke-width="3" fill="none" stroke-linejoin="round"/>
+      <ellipse cx="9" cy="23" rx="4" ry="3.2" fill="#F25C7A"/><ellipse cx="23" cy="20" rx="4" ry="3.2" fill="#F25C7A"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="awning">
+  <div class="sign">
+    <button class="ibtn" id="homeBtn" aria-label="الصفحة الرئيسية"><svg><use href="#i-home"/></svg></button>
+    <div class="ttl"><b>مخبز بوبو</b><small>القسمة مع الباقي</small></div>
+    <span class="starpill" id="stars"><svg><use href="#i-star"/></svg><span>٠</span></span>
+    <button class="ibtn" id="sfxBtn" aria-label="المؤثرات الصوتية"><svg><use href="#i-note"/></svg></button>
+    <button class="ibtn" id="muteBtn" aria-label="صوت بوبو" hidden><svg><use href="#i-voice"/></svg></button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== HOME ===== -->
+  <section class="screen" id="home">
+    <div class="hero">
+      <div class="pupwrap" id="heroPup"></div>
+      <h2>مخبز بوبو</h2>
+      <p>تعلّم القسمة مع الباقي</p>
+      <div class="bubble" id="heroBubble"></div>
+    </div>
+    <div class="path" id="levels"></div>
+  </section>
+
+  <!-- shared problem ticket for levels 1-3 -->
+  <div class="ticket" id="probBar" hidden>
+    <div class="bigeq" id="pbEq"></div>
+    <div class="steppers">
+      <div class="stp"><span class="lbl">المقسوم</span><button data-a="n-" aria-label="أقل">−</button><b class="cn" id="stN"></b><button data-a="n+" aria-label="أكثر">+</button></div>
+      <div class="stp"><span class="lbl">المقسوم عليه</span><button data-a="d-" aria-label="أقل">−</button><b class="cd" id="stD"></b><button data-a="d+" aria-label="أكثر">+</button></div>
+    </div>
+    <div class="btns">
+      <button class="btn ghost" data-a="book">📖 مثال الكتاب</button>
+      <button class="btn ghost" data-a="rand">🎲 مسألة جديدة</button>
+    </div>
+  </div>
+
+  <!-- ===== LEVEL 1: share ===== -->
+  <section class="screen" id="lv1" hidden>
+    <div class="lvhead"><span class="num">١</span><h2>نوزّع الكعك</h2></div>
+    <div class="guide" id="g1"></div>
+    <div class="tray" id="tray"><span class="tag" id="trayTag">صينية الكعك</span><div class="pile" id="pile"></div></div>
+    <div class="plates" id="plates"></div>
+    <div class="monster" id="monster">
+      <svg viewBox="0 0 130 120" aria-hidden="true">
+        <path d="M34 26L40 6l9 18zM81 24l9-18 6 20z" fill="#FFD25A" stroke="#E0A800" stroke-width="2" stroke-linejoin="round"/>
+        <ellipse cx="22" cy="78" rx="10" ry="14" fill="#8447D6" transform="rotate(30 22 78)"/>
+        <ellipse cx="108" cy="78" rx="10" ry="14" fill="#8447D6" transform="rotate(-30 108 78)"/>
+        <path d="M65 18c36 0 52 26 52 54 0 26-18 40-52 40S13 98 13 72c0-28 16-54 52-54z" fill="#9B5DE5"/>
+        <ellipse cx="65" cy="86" rx="34" ry="21" fill="#B98AF0"/>
+        <ellipse cx="44" cy="114" rx="12" ry="5" fill="#7A3FCC"/><ellipse cx="86" cy="114" rx="12" ry="5" fill="#7A3FCC"/>
+        <g class="msleep" stroke="#3A1A4A" stroke-width="3.5" fill="none" stroke-linecap="round">
+          <path d="M38 50q9 7 18 0"/><path d="M74 50q9 7 18 0"/>
+        </g>
+        <g class="meyes">
+          <circle cx="47" cy="48" r="12" fill="#fff"/><circle cx="83" cy="48" r="12" fill="#fff"/>
+          <circle cx="49" cy="50" r="5.5" fill="#2A1030"/><circle cx="85" cy="50" r="5.5" fill="#2A1030"/>
+          <circle cx="51" cy="48" r="1.8" fill="#fff"/><circle cx="87" cy="48" r="1.8" fill="#fff"/>
+        </g>
+        <path class="mclosed" d="M48 74q17 12 34 0" stroke="#3A1A4A" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g class="mopen">
+          <ellipse cx="65" cy="78" rx="21" ry="16" fill="#4A1A3A"/>
+          <path d="M48 70l5 6 5-7 5 7 5-7 5 7 5-7 4 6" fill="#fff"/>
+          <ellipse cx="65" cy="88" rx="11" ry="5" fill="#FF7FA8"/>
+        </g>
+        <path class="msad" d="M50 82q15-10 30 0" stroke="#3A1A4A" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g class="mzzz" fill="#8447D6" font-weight="800"><text x="100" y="22" font-size="16">z</text><text x="110" y="10" font-size="12">z</text></g>
+      </svg>
+      <span class="name">نمنوم</span>
+    </div>
+    <div class="counters">
+      <div class="ctr q">كل طبق أخذ: <b id="s1each">٠</b></div>
+      <div class="ctr n">في الصينية: <b id="s1left">٠</b></div>
+      <div class="ctr r">أكل نمنوم: <b id="s1fed">٠</b></div>
+    </div>
+    <div class="tip" id="s1tip">اسحب كعكة إلى طبق بإصبعك، أو اضغط عليها 👆</div>
+    <div class="btns">
+      <button class="btn" id="s1round">🍪 وزّع جولة</button>
+      <button class="btn sun" id="s1all">⏩ وزّع الكل</button>
+      <button class="btn ghost" id="s1reset">↺ من جديد</button>
+    </div>
+    <div id="s1sum"></div>
+    <div class="nextlv"><button class="btn mint" data-go="2">المرحلة التالية: الأرنب القفّاز ←</button></div>
+  </section>
+
+  <!-- ===== LEVEL 2: jump ===== -->
+  <section class="screen" id="lv2" hidden>
+    <div class="lvhead"><span class="num">٢</span><h2>الأرنب القفّاز</h2></div>
+    <div class="guide" id="g2"></div>
+    <div class="nl" id="nlWrap"></div>
+    <div class="counters">
+      <div class="ctr q">عدد القفزات: <b id="s2jumps">٠</b></div>
+      <div class="ctr d">طول القفزة: <b id="s2len">٠</b></div>
+    </div>
+    <div class="btns">
+      <button class="btn sky big" id="s2jump">اقفز</button>
+      <button class="btn ghost" id="s2reset">↺ من جديد</button>
+    </div>
+    <div id="s2sum"></div>
+    <div class="nextlv"><button class="btn mint" data-go="3">المرحلة التالية: جدول الضرب ←</button></div>
+  </section>
+
+  <!-- ===== LEVEL 3: table ===== -->
+  <section class="screen" id="lv3" hidden>
+    <div class="lvhead"><span class="num">٣</span><h2>جدول الضرب</h2></div>
+    <div class="guide" id="g3"></div>
+    <div class="card rule">📌 <b>تذكّر:</b> نستخدم جدول ضرب <b class="cd">المقسوم عليه</b>، ونختار <b>أكبر ناتج ضرب لا يزيد عن <span class="cn">المقسوم</span></b>.<br>
+      <b class="cr">الباقي</b> = <b class="cn">المقسوم</b> − <b class="cp">ناتج الضرب</b></div>
+    <div class="ttitle">جدول ضرب <b class="cd" id="s3d"></b></div>
+    <div class="board">
+      <div class="mrow top" id="s3top"></div>
+      <div class="mrow bot" id="s3bot"></div>
+    </div>
+    <div class="under" id="s3under"></div>
+    <div class="btns">
+      <button class="btn sky" id="s3next">👀 اكشف التالي</button>
+      <button class="btn ghost" id="s3reset">↺ من جديد</button>
+    </div>
+    <div class="fill" id="s3fill" hidden>
+      <div class="fline" id="s3line"></div>
+      <div class="pad" id="s3pad"></div>
+    </div>
+    <div id="s3sum"></div>
+    <div class="nextlv"><button class="btn mint" data-go="4">المرحلة التالية: طلبات الزبائن ←</button></div>
+  </section>
+
+  <!-- ===== LEVEL 4: orders ===== -->
+  <section class="screen" id="lv4" hidden>
+    <div class="lvhead"><span class="num">٤</span><h2>طلبات الزبائن</h2></div>
+    <div class="guide" id="g4"></div>
+    <div class="card">
+      <div class="ptop"><span class="tag" id="pTag"></span><div class="dots" id="pDots"></div></div>
+      <div class="order"><div class="cust" id="pCust"></div><div class="otext" id="pOrder"></div></div>
+      <div class="bigeq" id="pEq" style="margin-top:10px"></div>
+      <div class="answers">
+        <button class="field q" id="fQ"><small>خارج القسمة</small><span>&nbsp;</span></button>
+        <span class="and">والباقي</span>
+        <button class="field r" id="fR"><small>الباقي</small><span>&nbsp;</span></button>
+      </div>
+      <div class="pad" id="pPad"></div>
+      <div class="btns">
+        <button class="btn sun" id="pHint">💡 تلميح</button>
+        <button class="btn ghost" id="pCook">🍪 شوف بالكعك</button>
+        <button class="btn mint" id="pNext" hidden>الزبون التالي ←</button>
+      </div>
+      <div id="pHintBox"></div>
+    </div>
+    <div class="btns">
+      <button class="btn ghost" id="pPrint">🖨️ اطبع ورقة تمارين</button>
+      <button class="btn ghost" id="pResetProg">↺ ابدأ من الأول</button>
+    </div>
+  </section>
+
+  <!-- ===== LEVEL 5: bubbles ===== -->
+  <section class="screen" id="lv5" hidden>
+    <div class="lvhead"><span class="num">٥</span><h2>لعبة الفقاعات</h2></div>
+    <div class="guide" id="g5"></div>
+    <div class="card gamebar">
+      <div class="gq" id="gQ">؟</div>
+      <div class="gstats"><span>النقاط: <b id="gScore">٠</b></span><span>الأفضل: <b id="gBest">٠</b></span></div>
+      <div class="timer"><i id="gTime"></i></div>
+    </div>
+    <div class="pond" id="pond">
+      <div class="pondmsg" id="pondMsg"><button class="btn mint big" id="gStart">▶ ابدأ اللعبة</button></div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="ibtn x" id="mClose" aria-label="إغلاق">✕</button>
+    <div id="mBody"></div>
+  </div>
+</div>
+
+<div id="sheet"></div>
+
+<script>
+(() => {
+'use strict';
+
+/* ---------- helpers ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const AR = '٠١٢٣٤٥٦٧٨٩';
+const toAr = v => String(v).replace(/[0-9]/g, c => AR[c]);
+const reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wait = ms => new Promise(r => setTimeout(r, reduced ? Math.min(ms, 20) : ms));
+const rnd = (a, b) => a + Math.floor(Math.random() * (b - a + 1));
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const cN = v => `<b class="cn">${toAr(v)}</b>`;
+const cD = v => `<b class="cd">${toAr(v)}</b>`;
+const cQ = v => `<b class="cq">${toAr(v)}</b>`;
+const cR = v => `<b class="cr">${toAr(v)}</b>`;
+const cP = v => `<b class="cp">${toAr(v)}</b>`;
+const PRAISE = ['أحسنت!', 'رائع!', 'ممتاز!', 'برافو!', 'شاطر!', 'عظيم!'];
+const COOKIE = '<svg><use href="#i-cookie"/></svg>';
+const RIMS = ['#9CC6FF', '#FFB3CF', '#A6E8C9', '#FFD98A', '#CDB4FF', '#FFC59E', '#9FE3F0', '#F5B0E8', '#C9E79A'];
+
+function summaryHTML(n, d, q, r, extra = '') {
+  return `<div class="sum">
+    <div class="eq">${cN(n)} ÷ ${cD(d)} = ${cQ(q)} والباقي ${cR(r)}</div>
+    <div class="chk">للتأكد: ${cQ(q)} × ${cD(d)} + ${cR(r)} = ${cN(n)} ✓</div>
+    ${extra ? `<div class="extra">${extra}</div>` : ''}
+  </div>`;
+}
+
+/* ---------- storage (safe) ---------- */
+const KEY = 'bobo-bakery-division-v2';
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } },
+  set(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+};
+const saved = store.get();
+const app = {
+  stars: saved.stars || 0, solved: saved.solved || 0, idx: saved.idx || 0,
+  muted: !!saved.muted, sfx: saved.sfx !== false, done: saved.done || {}, best: saved.best || 0
+};
+const save = () => store.set(app);
+
+/* ---------- sound effects (made in the browser, no files) ---------- */
+let actx = null;
+function ac() {
+  if (!app.sfx) return null;
+  try {
+    if (!actx) { const C = window.AudioContext || window.webkitAudioContext; if (!C) return null; actx = new C(); }
+    if (actx.state === 'suspended') actx.resume();
+  } catch (e) { return null; }
+  return actx;
+}
+function tone(freq, dur, type = 'sine', vol = .2, when = 0, slideTo = 0) {
+  const a = ac(); if (!a) return;
+  const t = a.currentTime + when;
+  const o = a.createOscillator(), g = a.createGain();
+  o.type = type; o.frequency.setValueAtTime(freq, t);
+  if (slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t + dur);
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(vol, t + 0.012);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+  o.connect(g); g.connect(a.destination);
+  o.start(t); o.stop(t + dur + 0.03);
+}
+const SFX = {
+  pop: () => tone(500, .12, 'sine', .22, 0, 950),
+  click: () => tone(900, .05, 'sine', .07),
+  boing: () => tone(200, .32, 'triangle', .22, 0, 640),
+  chime: () => [523, 659, 784, 1047].forEach((f, i) => tone(f, .28, 'sine', .16, i * .08)),
+  win: () => [523, 659, 784, 1047, 1319].forEach((f, i) => { tone(f, .35, 'triangle', .14, i * .1); tone(f * 2, .2, 'sine', .05, i * .1); }),
+  soft: () => { tone(330, .16, 'triangle', .15); tone(262, .24, 'triangle', .15, .14); },
+  chomp: () => [0, .11, .22].forEach(w => tone(150, .07, 'square', .08, w, 80)),
+  bubble: () => tone(650, .1, 'sine', .2, 0, 1500),
+  wow: () => tone(300, .4, 'sine', .15, 0, 900),
+  star: () => { tone(1200, .12, 'sine', .12); tone(1600, .18, 'sine', .1, .08); }
+};
+function renderSfx() { $('#sfxBtn').classList.toggle('off', !app.sfx); }
+$('#sfxBtn').onclick = () => { app.sfx = !app.sfx; save(); renderSfx(); SFX.click(); };
+
+/* ---------- voice ---------- */
+let arVoice = null;
+const hasTTS = 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+function pickVoice() {
+  if (!hasTTS) return;
+  const vs = speechSynthesis.getVoices();
+  arVoice = vs.find(v => /^ar[-_]EG/i.test(v.lang)) || vs.find(v => /^ar/i.test(v.lang)) || null;
+  $('#muteBtn').hidden = !arVoice;
+}
+if (hasTTS) { pickVoice(); if (speechSynthesis.addEventListener) speechSynthesis.addEventListener('voiceschanged', pickVoice); }
+function speechText(t) {
+  return t.replace(/÷/g, ' مقسوم على ').replace(/×/g, ' في ').replace(/−/g, ' ناقص ')
+    .replace(/\+/g, ' زائد ').replace(/=/g, ' يساوي ')
+    .replace(/[٠-٩]/g, c => AR.indexOf(c))
+    .replace(/[\u{1F000}-\u{1FAFF}☀-➿←-⇿⬀-⯿️]/gu, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+const talkTimers = new WeakMap();
+function talk(pup, ms) {
+  if (!pup) return;
+  pup.classList.add('talking');
+  clearTimeout(talkTimers.get(pup));
+  talkTimers.set(pup, setTimeout(() => pup.classList.remove('talking'), ms));
+}
+function speakText(t, pup) {
+  if (!t) return;
+  if (!arVoice || app.muted) { talk(pup, Math.min(2600, 400 + t.length * 30)); return; }
+  try {
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(speechText(t));
+    u.voice = arVoice; u.lang = arVoice.lang; u.rate = 0.9;
+    if (pup) {
+      talk(pup, 15000);
+      const stop = () => { clearTimeout(talkTimers.get(pup)); pup.classList.remove('talking'); };
+      u.onend = stop; u.onerror = stop;
+    }
+    speechSynthesis.speak(u);
+  } catch (e) {}
+}
+function renderMute() { $('#muteBtn').classList.toggle('off', app.muted); }
+$('#muteBtn').onclick = () => {
+  app.muted = !app.muted; save(); renderMute();
+  if (app.muted && hasTTS) speechSynthesis.cancel();
+};
+
+/* ---------- Bobo the baker puppy ---------- */
+const PUP = `<svg class="pup" viewBox="0 0 120 124" aria-hidden="true">
+  <g class="ear-l"><ellipse cx="26" cy="66" rx="13" ry="25" fill="#8B5E3C" transform="rotate(18 26 66)"/></g>
+  <g class="ear-r"><ellipse cx="94" cy="66" rx="13" ry="25" fill="#8B5E3C" transform="rotate(-18 94 66)"/></g>
+  <circle cx="60" cy="74" r="36" fill="#F6E3C6"/>
+  <ellipse cx="75" cy="62" rx="12" ry="14" fill="#E3C192"/>
+  <g>
+    <circle cx="44" cy="20" r="14" fill="#fff" stroke="#EADFD0" stroke-width="2"/>
+    <circle cx="60" cy="14" r="16" fill="#fff" stroke="#EADFD0" stroke-width="2"/>
+    <circle cx="76" cy="20" r="14" fill="#fff" stroke="#EADFD0" stroke-width="2"/>
+    <rect x="38" y="24" width="44" height="18" rx="5" fill="#fff" stroke="#EADFD0" stroke-width="2"/>
+    <rect x="38" y="34" width="44" height="5" fill="#FFB3CF"/>
+  </g>
+  <g class="brow" stroke="#6B3E26" stroke-width="3" stroke-linecap="round"><path d="M40 58l10 3"/><path d="M80 58l-10 3"/></g>
+  <g class="eyes">
+    <circle cx="48" cy="70" r="6.5" fill="#2A1A10"/><circle cx="72" cy="70" r="6.5" fill="#2A1A10"/>
+    <g class="pupils"><circle cx="50" cy="68" r="2.2" fill="#fff"/><circle cx="74" cy="68" r="2.2" fill="#fff"/></g>
+  </g>
+  <circle cx="38" cy="84" r="5" fill="#FF9EB5" opacity=".55"/><circle cx="82" cy="84" r="5" fill="#FF9EB5" opacity=".55"/>
+  <ellipse cx="60" cy="83" rx="7.5" ry="5.5" fill="#2A1A10"/>
+  <g class="m-happy"><path d="M50 91q10 9 20 0" stroke="#2A1A10" stroke-width="2.8" fill="none" stroke-linecap="round"/><path d="M56 94q4 10 8 0z" fill="#FF6B81"/></g>
+  <g class="m-talk"><ellipse cx="60" cy="96" rx="8" ry="7" fill="#5A1A2A"/><ellipse cx="60" cy="100" rx="5" ry="3" fill="#FF6B81"/></g>
+  <circle class="m-o" cx="60" cy="95" r="4" fill="#5A1A2A"/>
+  <path class="m-sad" d="M51 98q9-7 18 0" stroke="#2A1A10" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+</svg>`;
+function mountGuide(id) {
+  const g = $('#' + id);
+  g.innerHTML = `<div class="pupwrap">${PUP}</div><div class="bubble" title="اضغط لتسمع"></div>`;
+  g.querySelector('.bubble').onclick = e => speakText(e.currentTarget.textContent, g.querySelector('.pup'));
+}
+['g1', 'g2', 'g3', 'g4', 'g5'].forEach(mountGuide);
+$('#heroPup').innerHTML = PUP;
+$('#heroBubble').onclick = e => speakText(e.currentTarget.textContent, $('#heroPup .pup'));
+
+function say(id, html, mood = 'happy', speak = true) {
+  const g = $('#' + id), b = g.querySelector('.bubble'), pup = g.querySelector('.pup');
+  b.innerHTML = html;
+  pup.classList.remove('st-think', 'st-sad', 'st-wow');
+  if (mood !== 'happy') pup.classList.add('st-' + mood);
+  b.classList.remove('pop'); g.classList.remove('hop', 'dance'); void b.offsetWidth;
+  b.classList.add('pop'); g.classList.add(mood === 'dance' ? 'dance' : 'hop');
+  if (speak) speakText(b.textContent, pup);
+}
+const bubbleText = id => $('#' + id + ' .bubble').textContent;
+const pupOf = id => $('#' + id + ' .pup');
+
+/* ---------- stars + confetti ---------- */
+function renderStars() { $('#stars span').textContent = toAr(app.stars); }
+function addStars(k) {
+  app.stars += k; save(); renderStars(); SFX.star();
+  const el = $('#stars'); el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump');
+}
+function confetti(count = 40) {
+  if (reduced) return;
+  const colors = ['#F25C7A', '#FFC233', '#22B488', '#3A9BF0', '#8A3FFC', '#FF7A00'];
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('i');
+    s.className = 'conf';
+    s.style.left = Math.random() * 100 + 'vw';
+    s.style.background = pick(colors);
+    if (Math.random() < .4) s.style.borderRadius = '50%';
+    s.style.animationDuration = (1.4 + Math.random() * 1.4) + 's';
+    s.style.animationDelay = (Math.random() * 0.35) + 's';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 3400);
+  }
+}
+function markDone(lv) { if (!app.done[lv]) { app.done[lv] = true; save(); } }
+
+/* ---------- number pad ---------- */
+const padHandlers = {};
+function makePad(host, screen, h) {
+  host.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'del', 0, 'ok'].map(k =>
+    `<button class="key ${k === 'del' ? 'del' : k === 'ok' ? 'ok' : ''}" data-k="${k}" aria-label="${k === 'del' ? 'مسح' : k === 'ok' ? 'تحقق' : k}">${k === 'del' ? '⌫' : k === 'ok' ? '✓' : toAr(k)}</button>`).join('');
+  host.onclick = e => {
+    const b = e.target.closest('.key'); if (!b) return;
+    const k = b.dataset.k; SFX.click();
+    if (k === 'del') h.del(); else if (k === 'ok') h.ok(); else h.digit(+k);
+  };
+  padHandlers[screen] = h;
+}
+document.addEventListener('keydown', e => {
+  if (!$('#modal').hidden) { if (e.key === 'Escape') closeModal(); return; }
+  const h = padHandlers[cur]; if (!h || (h.active && !h.active())) return;
+  let k = e.key;
+  const ai = AR.indexOf(k); if (ai >= 0) k = String(ai);
+  if (/^[0-9]$/.test(k)) { h.digit(+k); e.preventDefault(); }
+  else if (k === 'Backspace') { h.del(); e.preventDefault(); }
+  else if (k === 'Enter') { h.ok(); e.preventDefault(); }
+});
+
+/* ---------- screens / navigation ---------- */
+const LEVELS = [
+  { id: 1, icon: '<svg><use href="#i-cookie"/></svg>', title: 'نوزّع الكعك', desc: 'نقسم الكعك على الأطباق بالعدل' },
+  { id: 2, icon: '<svg><use href="#i-rabbit"/></svg>', title: 'الأرنب القفّاز', desc: 'نقفز على خط الأعداد' },
+  { id: 3, icon: '<svg><use href="#i-table"/></svg>', title: 'جدول الضرب', desc: 'طريقة الكتاب خطوة بخطوة' },
+  { id: 4, icon: '<svg><use href="#i-cat"/></svg>', title: 'طلبات الزبائن', desc: 'نحل التمارين ونجمع النجوم' },
+  { id: 5, icon: '<svg><use href="#i-bubble"/></svg>', title: 'لعبة الفقاعات', desc: 'مكافأة: افقع الباقي الصحيح!' }
+];
+const BONUS_NEED = 3;
+const bonusOpen = () => app.solved >= BONUS_NEED;
+function renderHome() {
+  $('#levels').innerHTML = LEVELS.map(l => {
+    const locked = l.id === 5 && !bonusOpen();
+    const state = locked ? '<svg><use href="#i-lock"/></svg>' : app.done[l.id] ? '<svg><use href="#i-star"/></svg>' : '◀';
+    const desc = locked ? `حلّ ${toAr(BONUS_NEED)} طلبات في المرحلة ٤ لتفتحها` : l.desc;
+    return `<button class="lvcard${locked ? ' locked' : ''}" data-go="${l.id}">
+      <span class="lvicon c${l.id}">${l.icon}</span>
+      <span class="lvtxt"><b>${toAr(l.id)}. ${l.title}</b><small>${desc}</small></span>
+      <span class="lvstate">${state}</span></button>`;
+  }).join('');
+  const first = !Object.keys(app.done).length;
+  $('#heroBubble').innerHTML = first
+    ? 'أهلًا! أنا <b>بوبو الخبّاز</b> 🐶. خبزت كعكًا كثيرًا، وأريد أن أوزّعه <b>بالعدل</b>. لكن أحيانًا يبقى كعك لا يكفي للجميع… هذا هو <b class="cr">الباقي</b>! ساعدني، ابدأ من المرحلة ١.'
+    : `أهلًا بعودتك! معك ${toAr(app.stars)} نجمة ⭐. اختر مرحلة ونكمل اللعب.`;
+}
+let cur = 'home';
+function go(t, speak = true) {
+  if (t === 5 && !bonusOpen()) {
+    SFX.soft();
+    $('#heroBubble').innerHTML = `لعبة الفقاعات مقفولة 🔒. حلّ ${toAr(BONUS_NEED)} طلبات في مرحلة «طلبات الزبائن» لتفتحها!`;
+    speakText($('#heroBubble').textContent, $('#heroPup .pup'));
+    return;
+  }
+  if (cur === 5 && t !== 5) g5Stop(false);
+  cur = t;
+  $$('.screen').forEach(s => { s.hidden = s.id !== (t === 'home' ? 'home' : 'lv' + t); });
+  const showTicket = t === 1 || t === 2 || t === 3;
+  $('#probBar').hidden = !showTicket;
+  if (showTicket) $('#lv' + t).insertBefore($('#probBar'), $('#g' + t));
+  if (t === 'home') renderHome();
+  if (t === 2 && !S2.busy) renderS2();
+  window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+  SFX.click();
+  if (speak) {
+    if (t === 'home') speakText($('#heroBubble').textContent, $('#heroPup .pup'));
+    else speakText(bubbleText('g' + t), pupOf('g' + t));
+  }
+}
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]'); if (!b) return;
+  go(+b.dataset.go);
+});
+$('#homeBtn').onclick = () => go('home');
+
+/* ---------- shared problem (levels 1-3) ---------- */
+const P = { n: 17, d: 3 };
+const maxN = d => Math.min(40, 10 * d - 1);
+function setProblem(n, d) {
+  d = Math.max(2, Math.min(9, d));
+  n = Math.max(d, Math.min(maxN(d), n));
+  P.n = n; P.d = d;
+  $('#pbEq').innerHTML = `${cN(n)} ÷ ${cD(d)} = ؟`;
+  $('#stN').textContent = toAr(n); $('#stD').textContent = toAr(d);
+  s1Reset(); s2Reset(); s3Reset();
+}
+$('#probBar').addEventListener('click', e => {
+  const b = e.target.closest('[data-a]'); if (!b) return;
+  const a = b.dataset.a; SFX.click();
+  if (a === 'n+') setProblem(P.n + 1, P.d);
+  else if (a === 'n-') setProblem(P.n - 1, P.d);
+  else if (a === 'd+') setProblem(P.n, P.d + 1);
+  else if (a === 'd-') setProblem(P.n, P.d - 1);
+  else if (a === 'book') setProblem(17, 3);
+  else if (a === 'rand') {
+    let n, d;
+    do {
+      d = rnd(2, 6);
+      const q = rnd(2, Math.min(7, Math.floor((40 - (d - 1)) / d)));
+      const r = Math.random() < 0.15 ? 0 : rnd(1, d - 1);
+      n = q * d + r;
+    } while (n === P.n && d === P.d);
+    setProblem(n, d);
+  }
+  if (typeof cur === 'number' && cur <= 3) speakText(bubbleText('g' + cur), pupOf('g' + cur));
+});
+
+/* fly a copy of an element to a target, then remove the copy */
+function flyTo(el, targetEl, dur = 380) {
+  return new Promise(res => {
+    const a = el.getBoundingClientRect(), b = targetEl.getBoundingClientRect();
+    if (reduced || !a.width) { res(); return; }
+    const g = el.cloneNode(true);
+    g.className = 'ck flying'; g.style.visibility = 'visible';
+    Object.assign(g.style, { left: a.left + 'px', top: a.top + 'px', width: a.width + 'px', height: a.height + 'px' });
+    document.body.appendChild(g);
+    const dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
+    g.style.transition = `transform ${dur}ms cubic-bezier(.45,-0.25,.5,1.25)`;
+    requestAnimationFrame(() => requestAnimationFrame(() => { g.style.transform = `translate(${dx}px,${dy}px) scale(.75) rotate(240deg)`; }));
+    setTimeout(() => { g.remove(); res(); }, dur + 20);
+  });
+}
+
+/* ================= Level 1: share ================= */
+const S1 = { pile: 0, plates: [], pend: [], fed: 0, inflight: 0, phase: 'share', busy: false, gen: 0, rounds: 0 };
+const plateEls = () => $('#plates').children;
+const eff = i => S1.plates[i] + S1.pend[i];
+function cookieEl(cls) {
+  const s = document.createElement('span');
+  s.className = 'ck' + (cls ? ' ' + cls : ''); s.innerHTML = COOKIE;
+  return s;
+}
+function monsterState(st) {
+  const m = $('#monster'); m.classList.remove('awake', 'open', 'sad');
+  if (st) m.classList.add(st);
+}
+function updS1() {
+  $('#s1each').textContent = toAr(S1.rounds);
+  $('#s1left').textContent = toAr(S1.pile);
+  $('#s1fed').textContent = toAr(S1.fed);
+  const r = $('#s1round'), all = $('#s1all');
+  if (S1.phase === 'feed') {
+    r.textContent = '😋 أطعم نمنوم'; all.hidden = true;
+    r.disabled = S1.busy || S1.pile === 0;
+  } else {
+    r.textContent = '🍪 وزّع جولة'; all.hidden = false;
+    r.disabled = all.disabled = S1.busy || S1.phase === 'done';
+  }
+}
+function s1Reset() {
+  S1.gen++; Object.assign(S1, { pile: P.n, plates: Array(P.d).fill(0), pend: Array(P.d).fill(0), fed: 0, inflight: 0, phase: 'share', busy: false, rounds: 0 });
+  const pile = $('#pile'); pile.innerHTML = '';
+  for (let i = 0; i < P.n; i++) pile.appendChild(cookieEl());
+  const pl = $('#plates'); pl.innerHTML = '';
+  const tall = Math.ceil(P.n / P.d) > 9;
+  for (let i = 0; i < P.d; i++) {
+    const p = document.createElement('div'); p.className = 'plate' + (tall ? ' tall' : ''); p.dataset.i = i;
+    p.style.setProperty('--rim', RIMS[i % RIMS.length]);
+    p.innerHTML = '<div class="pc"></div><div class="cnt">٠</div>';
+    pl.appendChild(p);
+  }
+  $('#tray').classList.remove('rem'); $('#trayTag').textContent = 'صينية الكعك';
+  monsterState(null);
+  $('#s1sum').innerHTML = '';
+  $('#s1tip').textContent = 'اسحب كعكة إلى طبق بإصبعك، أو اضغط عليها 👆';
+  say('g1', `عندنا ${cN(P.n)} كعكة، وعدد الأطباق ${cD(P.d)}. نريد أن نوزّع الكعك على الأطباق <b>بالعدل</b>: كل طبق يأخذ نفس العدد. اسحب الكعك إلى الأطباق، أو اضغط «وزّع جولة». نمنوم نائم الآن 😴`, 'happy', false);
+  updS1();
+}
+function s1Validate(target) {
+  if (S1.phase === 'share') {
+    if (target.id === 'monster') return 'ليس الآن! نمنوم ينتظر. نوزّع على الأطباق أولًا.';
+    const i = +target.dataset.i, min = Math.min(...S1.plates.map((_, k) => eff(k)));
+    if (eff(i) > min) return 'بالعدل! هذا الطبق فيه أكثر من غيره. أعطِ طبقًا فيه أقل.';
+    return true;
+  }
+  if (S1.phase === 'feed') {
+    if (target.id !== 'monster') return 'الكعك المتبقي لا يكفي لكل الأطباق، ولن يكون عدلًا! أعطه لنمنوم 😋';
+    return true;
+  }
+  return false;
+}
+function s1AutoTarget() {
+  if (S1.phase === 'feed') return $('#monster');
+  let best = 0;
+  for (let k = 1; k < P.d; k++) if (eff(k) < eff(best)) best = k;
+  return plateEls()[best];
+}
+/* move one cookie from the tray to a target (plate or monster) */
+async function s1Send(ck, target, fly, fast) {
+  const gen = S1.gen;
+  const isM = target.id === 'monster';
+  const i = isM ? -1 : +target.dataset.i;
+  ck.classList.remove('lifted'); ck.style.visibility = 'hidden';
+  S1.pile--; S1.inflight++; if (!isM) S1.pend[i]++;
+  updS1();
+  if (fly) await flyTo(ck, isM ? target.querySelector('svg') : target.querySelector('.pc'), fast ? 260 : 380);
+  if (gen !== S1.gen) return;
+  ck.remove(); S1.inflight--;
+  if (isM) {
+    S1.fed++;
+    const m = $('#monster'); monsterState('open'); m.classList.remove('chomp'); void m.offsetWidth; m.classList.add('chomp');
+    SFX.chomp();
+    setTimeout(() => { if (S1.phase !== 'done' && gen === S1.gen) monsterState('awake'); }, 350);
+  } else {
+    S1.pend[i]--; S1.plates[i]++;
+    target.querySelector('.pc').appendChild(cookieEl('pop'));
+    target.querySelector('.cnt').textContent = toAr(S1.plates[i]);
+    SFX.pop();
+  }
+  updS1();
+  s1After(fast);
+}
+function s1After(fast) {
+  if (S1.inflight) return;
+  if (S1.phase === 'share') {
+    const allEq = S1.plates.every(c => c === S1.plates[0]);
+    if (!allEq) return;
+    if (S1.plates[0] === S1.rounds) return;
+    S1.rounds = S1.plates[0]; updS1();
+    if (S1.pile < P.d) { s1EnterFeed(); return; }
+    if (!fast) say('g1', `جولة ${toAr(S1.rounds)} انتهت: كل طبق فيه ${cQ(S1.rounds)}، وفي الصينية <b>${toAr(S1.pile)}</b>. هل يكفي لجولة أخرى؟`, 'think');
+  } else if (S1.phase === 'feed' && S1.pile === 0) s1Finish();
+}
+function s1EnterFeed() {
+  const r = S1.pile, d = P.d;
+  if (r === 0) { s1Finish(); return; }
+  S1.phase = 'feed';
+  $('#tray').classList.add('rem'); $('#trayTag').innerHTML = `الباقي: ${cR(r)}`;
+  $$('#pile .ck').forEach(c => c.classList.add('glow'));
+  monsterState('awake'); SFX.wow();
+  $('#s1tip').textContent = 'اسحب الكعك المتبقي إلى نمنوم، أو اضغط عليه 😋';
+  say('g1', `في الصينية ${cR(r)} فقط، وعدد الأطباق ${cD(d)}. <b>لا يكفي لجولة جديدة!</b> هذا الكعك هو <b class="cr">الباقي</b>. انظر، نمنوم صحا جائعًا! أعطه الكعك المتبقي.`, 'wow');
+  updS1();
+}
+function s1Finish() {
+  if (S1.phase === 'done') return;
+  S1.phase = 'done';
+  const q = S1.rounds, r = S1.fed, d = P.d, n = P.n;
+  $('#s1tip').textContent = '';
+  if (r === 0) {
+    monsterState('sad');
+    say('g1', `${pick(PRAISE)} انتهى الكعك تمامًا! كل طبق أخذ ${cQ(q)} (هذا <b>خارج القسمة</b>)، ولم يبقَ شيء لنمنوم المسكين، إذن <b class="cr">الباقي</b> ${cR(0)}.`, 'dance');
+  } else {
+    monsterState('awake');
+    say('g1', `${pick(PRAISE)} كل طبق أخذ ${cQ(q)} (هذا <b>خارج القسمة</b>)، ونمنوم أكل ${cR(r)} (هذا <b class="cr">الباقي</b>). لاحظ: الباقي ${cR(r)} أصغر من ${cD(d)}.`, 'dance');
+  }
+  $('#s1sum').innerHTML = summaryHTML(n, d, q, r, `الباقي ${cR(r)} أصغر من عدد الأطباق ${cD(d)} — دائمًا!`);
+  addStars(1); confetti(30); SFX.chime(); markDone(1);
+  updS1();
+}
+async function s1Round(fast) {
+  if (S1.busy || S1.phase !== 'share') return;
+  const gen = S1.gen; S1.busy = true; updS1();
+  const min = Math.min(...S1.plates.map((_, k) => eff(k)));
+  const targets = Array.from(plateEls()).filter((p, k) => eff(k) === min);
+  const jobs = [];
+  for (const t of targets) {
+    const ck = Array.from($('#pile').children).reverse().find(c => c.style.visibility !== 'hidden');
+    if (!ck) break;
+    jobs.push(s1Send(ck, t, true, fast));
+    await wait(fast ? 70 : 150);
+    if (gen !== S1.gen) return;
+  }
+  await Promise.all(jobs);
+  if (gen !== S1.gen) return;
+  S1.busy = false; updS1();
+}
+async function s1All() {
+  if (S1.busy) return;
+  const gen = S1.gen;
+  while (S1.phase === 'share' && gen === S1.gen) {
+    await s1Round(true);
+    await wait(60);   // let cookies that are still flying land
+  }
+}
+async function s1FeedAll() {
+  if (S1.busy || S1.phase !== 'feed') return;
+  const gen = S1.gen; S1.busy = true; updS1();
+  const left = Array.from($('#pile').children).filter(c => c.style.visibility !== 'hidden');
+  for (const ck of left) {
+    await s1Send(ck, $('#monster'), true, false);
+    if (gen !== S1.gen) return;
+  }
+  S1.busy = false; updS1();
+}
+$('#s1round').onclick = () => S1.phase === 'feed' ? s1FeedAll() : s1Round(false);
+$('#s1all').onclick = s1All;
+$('#s1reset').onclick = () => { s1Reset(); speakText(bubbleText('g1'), pupOf('g1')); };
+
+/* drag with a finger (or mouse) */
+let drag = null;
+const dropTarget = (x, y) => { const el = document.elementFromPoint(x, y); return el ? el.closest('.plate, #monster') : null; };
+function clearHover() { $$('.plate.hover, #monster.hover').forEach(e => e.classList.remove('hover')); }
+$('#pile').addEventListener('pointerdown', e => {
+  const ck = e.target.closest('.ck');
+  if (!ck || S1.busy || S1.phase === 'done' || ck.style.visibility === 'hidden') return;
+  e.preventDefault();
+  ac();
+  const r = ck.getBoundingClientRect();
+  const ghost = ck.cloneNode(true); ghost.className = 'ck flying';
+  Object.assign(ghost.style, { left: r.left + 'px', top: r.top + 'px', width: r.width + 'px', height: r.height + 'px', transform: 'scale(1.25)' });
+  document.body.appendChild(ghost);
+  ck.classList.add('lifted');
+  drag = { ck, ghost, sx: e.clientX, sy: e.clientY, moved: false };
+});
+document.addEventListener('pointermove', e => {
+  if (!drag) return;
+  const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+  if (Math.hypot(dx, dy) > 8) drag.moved = true;
+  drag.ghost.style.transform = `translate(${dx}px,${dy}px) scale(1.25)`;
+  clearHover();
+  const t = dropTarget(e.clientX, e.clientY);
+  if (t) t.classList.add('hover');
+});
+async function endDrag(e, cancelled) {
+  if (!drag) return;
+  const d = drag; drag = null; clearHover();
+  if (!d.moved && !cancelled) {
+    d.ghost.remove();
+    const t = s1AutoTarget();
+    s1Send(d.ck, t, true, false);
+    return;
+  }
+  const t = cancelled ? null : dropTarget(e.clientX, e.clientY);
+  const ok = t ? s1Validate(t) : false;
+  if (ok === true) { d.ghost.remove(); s1Send(d.ck, t, false, false); return; }
+  if (typeof ok === 'string') { say('g1', ok, 'sad'); SFX.soft(); }
+  d.ghost.style.transition = 'transform .28s';
+  d.ghost.style.transform = 'translate(0,0) scale(1)';
+  await wait(290);
+  d.ghost.remove(); d.ck.classList.remove('lifted');
+}
+document.addEventListener('pointerup', e => endDrag(e, false));
+document.addEventListener('pointercancel', e => endDrag(e, true));
+
+/* ================= Level 2: jump ================= */
+const S2 = { k: 0, busy: false, done: false, gen: 0 };
+function geom() {
+  const wrap = $('#nlWrap');
+  const W = Math.max(300, wrap.clientWidth || 600);
+  const q = Math.floor(P.n / P.d);
+  const maxV = Math.max(P.n, (q + 1) * P.d);
+  const pad = 26, base = 120;
+  const sc = (W - 2 * pad) / maxV;
+  return { W, H: 225, base, sc, maxV, x: v => W - pad - v * sc };  // 0 on the right (RTL)
+}
+const arcH = (a, b) => Math.min(58, Math.abs(a - b) * 0.55 + 12);
+function renderS2() {
+  const { W, H, base, sc, maxV, x } = geom();
+  const n = P.n, d = P.d, k = S2.k, r = n % d;
+  let o = '';
+  o += `<line x1="${x(0) + 8}" y1="${base}" x2="${x(maxV) - 8}" y2="${base}" stroke="#FFC2DA" stroke-width="14" stroke-linecap="round"/>`;
+  o += `<line x1="${x(0) + 8}" y1="${base}" x2="${x(maxV) - 8}" y2="${base}" stroke="#fff" stroke-width="14" stroke-dasharray="6 10" opacity=".75"/>`;
+  const labelAll = sc >= 20;
+  for (let v = 0; v <= maxV; v++) {
+    const isN = v === n, isM = v % d === 0 && v / d <= k;
+    if (isN) { o += `<line x1="${x(v)}" x2="${x(v)}" y1="${base - 20}" y2="${base + 34}" stroke="#0A8F9C" stroke-width="3"/>`; continue; }
+    o += `<circle cx="${x(v)}" cy="${base}" r="${isM ? 5 : 2.5}" fill="${isM ? '#E0337A' : '#E58FB5'}"/>`;
+    if (isM) o += `<text class="lm" x="${x(v)}" y="${base + 32}">${toAr(v)}</text>`;
+    else if (labelAll) o += `<text class="lg" x="${x(v)}" y="${base + 30}">${toAr(v)}</text>`;
+  }
+  o += `<rect x="${x(n) - 22}" y="${base + 36}" width="44" height="28" rx="14" fill="#0A8F9C"/><text class="ln" x="${x(n)}" y="${base + 56}">${toAr(n)}</text>`;
+  for (let j = 1; j <= k; j++) {
+    const a = x((j - 1) * d), b = x(j * d), m = (a + b) / 2, h = arcH(a, b);
+    o += `<path class="arc" d="M${a} ${base - 8} Q${m} ${base - 2 * h} ${b} ${base - 8}"/>`;
+    if (Math.abs(a - b) >= 28) o += `<circle cx="${m}" cy="${base - h - 16}" r="13" fill="#2F6BFF"/><text class="bt" x="${m}" y="${base - h - 11}">${toAr(j)}</text>`;
+  }
+  if (S2.done) {
+    const a = x(k * d), b = x((k + 1) * d), m = (a + b) / 2, h = arcH(a, b);
+    o += `<path class="arc over" d="M${a} ${base - 8} Q${m} ${base - 2 * h} ${b} ${base - 8}"/><text class="xmark" x="${b}" y="${base - 14}">✗</text>`;
+    if (r > 0) {
+      const lx = Math.max(46, Math.min(W - 46, (x(k * d) + x(n)) / 2));
+      o += `<line x1="${x(k * d)}" y1="${base}" x2="${x(n)}" y2="${base}" stroke="#FF7A00" stroke-width="10" stroke-linecap="round"/><text class="gl" x="${lx}" y="${base + 94}">الباقي ${toAr(r)}</text>`;
+    }
+  }
+  o += `<use id="rabbit" href="#i-rabbit" width="44" height="52" x="${x(k * d) - 22}" y="${base - 58}"/>`;
+  $('#nlWrap').innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="خط الأعداد">${o}</svg>`;
+}
+function animRabbit(fromV, toV, fail) {
+  return new Promise(res => {
+    const g = geom(), el = $('#rabbit');
+    if (!el || reduced) { res(); return; }
+    const xa = g.x(fromV), xb = g.x(toV), h = arcH(xa, xb) + 10;
+    const dur = fail ? 750 : 560, t0 = performance.now();
+    let finished = false;
+    const end = () => { if (!finished) { finished = true; res(); } };
+    setTimeout(end, dur + 150);   // safety: finish even if animation frames are paused
+    const step = now => {
+      if (finished) return;
+      const t = Math.min(1, (now - t0) / dur);
+      const tt = fail ? (t < 0.5 ? t * 0.9 : (1 - t) * 0.9) : t;
+      el.setAttribute('x', xa + (xb - xa) * tt - 22);
+      el.setAttribute('y', g.base - 58 - h * Math.sin(Math.PI * tt));
+      if (t < 1) requestAnimationFrame(step); else end();
+    };
+    requestAnimationFrame(step);
+  });
+}
+function updS2() { $('#s2jump').disabled = S2.busy || S2.done; }
+function s2Reset() {
+  S2.gen++; S2.k = 0; S2.busy = false; S2.done = false;
+  $('#s2sum').innerHTML = '';
+  $('#s2jumps').textContent = toAr(0); $('#s2len').textContent = toAr(P.d);
+  $('#s2jump').textContent = `🐰 اقفز ${toAr(P.d)}`;
+  renderS2();
+  say('g2', `هذه صديقتي الأرنبة سمسمة 🐰. تبدأ من ${toAr(0)}، وتقفز ${cD(P.d)} خطوات في كل مرة. كم قفزة تقدر أن تقفز بدون أن تتجاوز ${cN(P.n)}؟ اضغط «اقفز».`, 'think', false);
+  updS2();
+}
+async function s2Jump() {
+  if (S2.busy || S2.done) return;
+  const gen = S2.gen, d = P.d, n = P.n, k = S2.k, next = (k + 1) * d;
+  S2.busy = true; updS2(); SFX.boing();
+  if (next <= n) {
+    await animRabbit(k * d, next, false);
+    if (gen !== S2.gen) return;
+    S2.k++; S2.busy = false; renderS2(); SFX.pop();
+    $('#s2jumps').textContent = toAr(S2.k);
+    say('g2', `قفزة ${toAr(S2.k)}: وصلت سمسمة إلى ${cP(next)}. (${cQ(S2.k)} × ${cD(d)} = ${cP(next)})` +
+      (next === n ? ` — وصلت إلى ${cN(n)} تمامًا!` : ''));
+  } else {
+    await animRabbit(k * d, next, true);
+    if (gen !== S2.gen) return;
+    S2.done = true; S2.busy = false; renderS2(); SFX.wow();
+    const r = n - k * d;
+    const msg = r === 0
+      ? `لو قفزت مرة أخرى تصل إلى ${toAr(next)}، وهذا أكبر من ${cN(n)}. سمسمة وقفت على ${cN(n)} تمامًا! قفزت ${cQ(k)} قفزات (خارج القسمة)، و<b class="cr">الباقي</b> ${cR(0)}.`
+      : `أوه! لو قفزت مرة أخرى تصل إلى ${toAr(next)}، وهذا أكبر من ${cN(n)}! لذلك تتوقف. قفزت ${cQ(k)} قفزات (هذا <b>خارج القسمة</b>)، وبقيت ${cR(r)} خطوة حتى ${cN(n)} (هذا <b class="cr">الباقي</b>).`;
+    say('g2', msg, 'wow');
+    const list = Array.from({ length: k }, (_, i) => toAr((i + 1) * d)).join('، ');
+    $('#s2sum').innerHTML = summaryHTML(n, d, k, r, k ? `أماكن وقوف سمسمة: ${list} — هذا هو <span class="cd">جدول ضرب ${toAr(d)}</span>!` : '');
+    addStars(1); confetti(30); SFX.chime(); markDone(2);
+    setTimeout(() => { if (gen === S2.gen) { const g = $('#g2'); g.classList.remove('dance'); void g.offsetWidth; g.classList.add('dance'); } }, 400);
+  }
+  updS2();
+}
+$('#s2jump').onclick = s2Jump;
+$('#s2reset').onclick = () => { s2Reset(); speakText(bubbleText('g2'), pupOf('g2')); };
+let rT; window.addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(() => { if (cur === 2 && !S2.busy) renderS2(); }, 120); });
+
+/* ================= Level 3: table ================= */
+const S3 = { rev: 0, stage: 'reveal', ans: '' };
+const s3q = () => Math.floor(P.n / P.d);
+function s3Reset() {
+  S3.rev = 0; S3.stage = 'reveal'; S3.ans = '';
+  const d = P.d;
+  $('#s3d').textContent = toAr(d);
+  $('#s3top').innerHTML = Array.from({ length: 9 }, (_, i) => `<div class="mc">${toAr(i + 1)}</div>`).join('');
+  $('#s3bot').innerHTML = Array.from({ length: 9 }, (_, i) => `<button class="mc pc hid${i === 0 ? ' next' : ''}" data-i="${i + 1}" aria-label="ناتج ${i + 1}">؟</button>`).join('');
+  $('#s3under').innerHTML = '';
+  $('#s3fill').hidden = true; $('#s3sum').innerHTML = '';
+  $('#s3next').disabled = false;
+  say('g3', `نحلّ ${cN(P.n)} ÷ ${cD(d)} باستخدام جدول ضرب ${cD(d)}، مثل كتابك تمامًا. نكشف النواتج واحدًا واحدًا، ونتوقف عندما نجد ناتجًا أكبر من ${cN(P.n)}. اضغط «اكشف التالي».`, 'think', false);
+}
+function s3Reveal() {
+  if (S3.stage !== 'reveal') return;
+  const i = ++S3.rev, d = P.d, n = P.n, p = i * d;
+  const cell = $(`#s3bot [data-i="${i}"]`);
+  cell.textContent = toAr(p); cell.classList.remove('hid', 'next'); cell.classList.add('flip');
+  let msg, mood = 'happy';
+  if (p < n) { cell.classList.add('ok'); SFX.pop(); msg = `${cQ(i)} × ${cD(d)} = ${cP(p)} ← أصغر من ${cN(n)} ✓`; }
+  else if (p === n) { cell.classList.add('ok'); SFX.pop(); msg = `${cQ(i)} × ${cD(d)} = ${cP(p)} ← يساوي ${cN(n)} تمامًا ✓`; }
+  else { cell.classList.add('bad'); SFX.wow(); mood = 'wow'; msg = `${cQ(i)} × ${cD(d)} = ${cP(p)} ← أكبر من ${cN(n)} ✗ نتوقف هنا!`; }
+  if (p > n || i === 9) {
+    S3.stage = 'pick'; $('#s3next').disabled = true;
+    $$('#s3bot .hid').forEach(c => c.classList.add('off'));
+    if (p <= n) msg += ' — انتهى الجدول.';
+    msg += `<br>الآن اضغط على <b>أكبر ناتج لا يزيد عن ${cN(n)}</b>.`;
+  } else {
+    $(`#s3bot [data-i="${i + 1}"]`).classList.add('next');
+  }
+  say('g3', msg, mood);
+}
+function renderS3Line() {
+  const q = s3q(), d = P.d, n = P.n;
+  const box = cls => `<span class="field ${cls} active"><span>${S3.ans ? toAr(S3.ans) : '&nbsp;'}</span></span>`;
+  $('#s3line').innerHTML = S3.stage === 'q'
+    ? `خارج القسمة = ${box('q')}`
+    : `<div>خارج القسمة = ${cQ(q)} ✓</div><div><b class="cr">الباقي</b> = ${cN(n)} − ${cP(q * d)} = ${S3.stage === 'done' ? cR(n - q * d) + ' ✓' : box('r')}</div>`;
+}
+function s3Wrong() { const f = $('#s3line .field'); if (f) { f.classList.remove('wrong'); void f.offsetWidth; f.classList.add('wrong'); } SFX.soft(); }
+$('#s3bot').onclick = e => {
+  const c = e.target.closest('.pc'); if (!c) return;
+  if (S3.stage === 'reveal') { s3Reveal(); return; }
+  if (S3.stage !== 'pick') return;
+  const i = +c.dataset.i, d = P.d, n = P.n, q = s3q(), p = i * d;
+  if (i > S3.rev) return;
+  if (p > n) { SFX.soft(); say('g3', `${cP(p)} أكبر من ${cN(n)}، لذلك لا يصلح. نريد ناتجًا <b>لا يزيد</b> عن ${cN(n)}.`, 'sad'); return; }
+  if (i < q) { SFX.soft(); say('g3', `${cP(p)} أصغر من ${cN(n)} فعلًا، لكن يوجد ناتج <b>أكبر منه</b> ولا يزيد عن ${cN(n)}. جرّب مرة أخرى!`, 'think'); return; }
+  c.classList.add('sel'); $(`#s3top .mc:nth-child(${i})`).classList.add('sel'); SFX.chime();
+  $('#s3under').innerHTML = `↑ ${cP(p)} هو أكبر ناتج لا يزيد عن ${cN(n)}`;
+  S3.stage = 'q'; S3.ans = '';
+  $('#s3fill').hidden = false; $('#s3pad').classList.remove('off'); renderS3Line();
+  say('g3', `أحسنت! ${cP(p)} هو أكبر ناتج لا يزيد عن ${cN(n)}. انظر إلى الرقم الذي فوقه في الصف العلوي: هذا هو <b>خارج القسمة</b>. اكتبه.`);
+};
+makePad($('#s3pad'), 3, {
+  active: () => S3.stage === 'q' || S3.stage === 'r',
+  digit(k) { if (!this.active()) return; S3.ans = String(k); renderS3Line(); },
+  del() { if (!this.active()) return; S3.ans = ''; renderS3Line(); },
+  ok() {
+    if (!this.active()) return;
+    const q = s3q(), d = P.d, n = P.n, r = n - q * d;
+    if (S3.ans === '') { say('g3', 'اكتب الرقم أولًا ثم اضغط ✓', 'think'); return; }
+    if (S3.stage === 'q') {
+      if (+S3.ans === q) {
+        S3.stage = 'r'; S3.ans = ''; renderS3Line(); SFX.pop();
+        say('g3', `صحيح! ${cQ(q)} × ${cD(d)} = ${cP(q * d)}. الآن نحسب <b class="cr">الباقي</b>: ${cN(n)} − ${cP(q * d)} = ؟`, 'think');
+      } else { s3Wrong(); say('g3', `ليس ${toAr(S3.ans)}. انظر إلى الرقم الذي فوق ${cP(q * d)} في الصف العلوي.`, 'sad'); }
+    } else {
+      if (+S3.ans === r) {
+        S3.stage = 'done'; renderS3Line(); $('#s3pad').classList.add('off');
+        say('g3', `${pick(PRAISE)} الباقي ${cR(r)}، وهو أصغر من ${cD(d)} ✓. تذكّر: <b>الباقي يجب أن يكون دائمًا أصغر من المقسوم عليه</b>.`, 'dance');
+        $('#s3sum').innerHTML = summaryHTML(n, d, q, r);
+        addStars(1); confetti(35); SFX.chime(); markDone(3);
+      } else { s3Wrong(); say('g3', `احسب مرة أخرى: ${cN(n)} − ${cP(q * d)}. عُدّ من ${toAr(q * d)} حتى ${toAr(n)} على أصابعك.`, 'sad'); }
+    }
+  }
+});
+$('#s3next').onclick = s3Reveal;
+$('#s3reset').onclick = () => { s3Reset(); speakText(bubbleText('g3'), pupOf('g3')); };
+
+/* ================= Level 4: customer orders ================= */
+const BOOK = [
+  { n: 8, d: 3, l: 'أ' }, { n: 9, d: 4, l: 'ب' }, { n: 15, d: 2, l: 'جـ' },
+  { n: 16, d: 3, l: 'د' }, { n: 53, d: 6, l: 'هـ' }, { n: 13, d: 5, l: 'و' }
+];
+const CUSTOMERS = [
+  { icon: 'i-cat', name: 'القطة لولو', f: true }, { icon: 'i-bear', name: 'الدب دبدوب' },
+  { icon: 'i-chick', name: 'الكتكوت كوكو' }, { icon: 'i-rabbit', name: 'الأرنبة سمسمة', f: true }
+];
+let curP = null;
+const S4 = { q: '', r: '', focus: 'q', tries: 0, hints: 0, solved: false };
+function randProb(prev) {
+  let p;
+  do {
+    const d = rnd(2, 9), q = rnd(1, 9), r = Math.random() < 0.15 ? 0 : rnd(1, d - 1);
+    p = { n: q * d + r, d };
+  } while (prev && p.n === prev.n && p.d === prev.d);
+  return p;
+}
+const friends = d => d === 2 ? 'صديقين' : `${cD(d)} أصدقاء`;
+function renderFields() {
+  [['q', '#fQ'], ['r', '#fR']].forEach(([k, sel]) => {
+    const f = $(sel);
+    f.querySelector('span').innerHTML = S4[k] !== '' ? toAr(S4[k]) : '&nbsp;';
+    f.classList.toggle('active', !S4.solved && S4.focus === k);
+  });
+}
+function loadPractice(speak) {
+  curP = app.idx < BOOK.length ? Object.assign({ book: true }, BOOK[app.idx]) : randProb(curP);
+  Object.assign(S4, { q: '', r: '', focus: 'q', tries: 0, hints: 0, solved: false });
+  const c = CUSTOMERS[app.idx % CUSTOMERS.length];
+  $('#pCust').innerHTML = `<svg><use href="#${c.icon}"/></svg>`; $('#pCust').classList.remove('happy');
+  $('#pOrder').innerHTML = `<span class="who">${c.name}:</span>عندي ${cN(curP.n)} كعكة، وأريد أن أوزّعها على ${friends(curP.d)} بالتساوي. كم يأخذ كل صديق؟ وكم يبقى؟`;
+  $('#pTag').textContent = curP.book ? `📖 تمرين (${curP.l}) من الكتاب` : '🎲 طلب جديد';
+  $('#pDots').innerHTML = BOOK.map((_, i) => `<span class="dot ${i < app.idx ? 'done' : i === app.idx ? 'cur' : ''}"></span>`).join('') +
+    `<span style="margin-inline-start:6px">محلولة: ${toAr(app.solved)}</span>`;
+  $('#pEq').innerHTML = `${cN(curP.n)} ÷ ${cD(curP.d)} = ؟`;
+  ['#fQ', '#fR'].forEach(s => $(s).classList.remove('right', 'wrong'));
+  $('#pPad').classList.remove('off');
+  $('#pHintBox').innerHTML = ''; $('#pHint').textContent = '💡 تلميح'; $('#pHint').disabled = false;
+  $('#pNext').hidden = true;
+  renderFields();
+  say('g4', `${c.name} ${c.f ? "تريد" : "يريد"} مساعدتك! اكتب <b class="cq">خارج القسمة</b> (كم يأخذ كل صديق) ثم <b class="cr">الباقي</b> (كم يبقى)، واضغط ✓.`, 'happy', false);
+  if (speak) speakText($('#pOrder').textContent, pupOf('g4'));
+}
+function markWrong(sel) { const f = $(sel); f.classList.remove('wrong', 'right'); void f.offsetWidth; f.classList.add('wrong'); }
+function checkPractice() {
+  if (S4.solved) return;
+  const { n, d } = curP, Q = Math.floor(n / d), R = n % d;
+  if (S4.q === '' || S4.r === '') { say('g4', 'اكتب <b class="cq">خارج القسمة</b> و<b class="cr">الباقي</b> أولًا، ثم اضغط ✓.', 'think'); return; }
+  const q = +S4.q, r = +S4.r;
+  if (q === Q && r === R) {
+    S4.solved = true;
+    const bonus = S4.tries === 0 && S4.hints === 0;
+    const wasLocked = !bonusOpen();
+    app.solved++; app.idx++; save();
+    if (app.idx >= BOOK.length) markDone(4);
+    addStars(bonus ? 2 : 1);
+    ['#fQ', '#fR'].forEach(s => { $(s).classList.remove('wrong'); $(s).classList.add('right'); });
+    $('#pPad').classList.add('off'); $('#pHint').disabled = true;
+    $('#pCust').classList.add('happy');
+    renderFields();
+    let msg = `${pick(PRAISE)} ${cN(n)} ÷ ${cD(d)} = ${cQ(Q)} والباقي ${cR(R)}. للتأكد: ${cQ(Q)} × ${cD(d)} + ${cR(R)} = ${cN(n)} ✓`;
+    if (bonus) msg += '<br>⭐⭐ نجمتان لأنك حللتها من أول مرة!';
+    if (wasLocked && bonusOpen()) msg += '<br>🎈 فتحت <b>لعبة الفقاعات</b>! تجدها في الصفحة الرئيسية.';
+    if (app.solved % 5 === 0) { msg += `<br>🎉 حللت ${toAr(app.solved)} طلبات! أنت بطل القسمة!`; confetti(120); SFX.win(); }
+    else { confetti(45); SFX.chime(); }
+    say('g4', msg, 'dance');
+    $('#pNext').hidden = false;
+    return;
+  }
+  S4.tries++; SFX.soft();
+  let msg;
+  if (q * d > n) {
+    markWrong('#fQ');
+    msg = `${cQ(q)} × ${cD(d)} = ${cP(q * d)}، وهذا <b>أكبر</b> من ${cN(n)}. جرّب رقمًا أصغر لخارج القسمة.`;
+  } else if (r >= d) {
+    markWrong('#fR');
+    msg = `الباقي ${cR(r)} ليس أصغر من ${cD(d)}! <b>الباقي يجب أن يكون دائمًا أصغر من المقسوم عليه</b>.` +
+      (q < Q ? ' يعني كل صديق يقدر أن يأخذ كعكة أخرى — زِد خارج القسمة.' : ` راجع الطرح: ${cN(n)} − ${cP(q * d)} = ؟`);
+  } else if (q < Q) {
+    markWrong('#fQ');
+    msg = `${cQ(q)} × ${cD(d)} = ${cP(q * d)}. هل يوجد ناتج <b>أكبر</b> في جدول ضرب ${cD(d)} ولا يزيد عن ${cN(n)}؟`;
+  } else {
+    $('#fQ').classList.add('right'); markWrong('#fR');
+    msg = `خارج القسمة صحيح 👍. راجع الباقي: ${cN(n)} − ${cP(Q * d)} = ؟`;
+  }
+  say('g4', msg, 'sad');
+}
+makePad($('#pPad'), 4, {
+  active: () => !S4.solved,
+  digit(k) {
+    if (S4.solved) return;
+    S4[S4.focus] = String(k);
+    $(S4.focus === 'q' ? '#fQ' : '#fR').classList.remove('wrong', 'right');
+    if (S4.focus === 'q') S4.focus = 'r';
+    renderFields();
+  },
+  del() {
+    if (S4.solved) return;
+    if (S4[S4.focus] === '' && S4.focus === 'r') S4.focus = 'q';
+    S4[S4.focus] = ''; renderFields();
+  },
+  ok: checkPractice
+});
+$('#fQ').onclick = () => { S4.focus = 'q'; renderFields(); SFX.click(); };
+$('#fR').onclick = () => { S4.focus = 'r'; renderFields(); SFX.click(); };
+$('#pNext').onclick = () => { SFX.click(); loadPractice(true); };
+
+function renderHints() {
+  const { n, d } = curP, Q = Math.floor(n / d);
+  let h = '';
+  if (S4.hints >= 1) h += `<div class="hint">١) استخدم <b>جدول ضرب ${cD(d)}</b>، وابحث عن أكبر ناتج لا يزيد عن ${cN(n)}.</div>`;
+  if (S4.hints >= 2) {
+    const last = Math.min(9, Q + 1);
+    h += `<div class="hint">٢) جدول ضرب ${cD(d)}:<div class="chips">` +
+      Array.from({ length: last }, (_, i) => { const p = (i + 1) * d; return `<span class="chip ${p <= n ? 'ok' : 'bad'}">${toAr(i + 1)} × ${toAr(d)} = ${toAr(p)} ${p <= n ? '✓' : '✗'}</span>`; }).join('') +
+      '</div></div>';
+  }
+  if (S4.hints >= 3) h += `<div class="hint">٣) أكبر ناتج لا يزيد عن ${cN(n)} هو ${cP(Q * d)} = ${cQ(Q)} × ${cD(d)}. إذن خارج القسمة ${cQ(Q)}، والباقي = ${cN(n)} − ${cP(Q * d)} = ؟</div>`;
+  $('#pHintBox').innerHTML = h;
+  $('#pHint').textContent = S4.hints < 3 ? `💡 تلميح (${toAr(S4.hints)}/٣)` : '💡 لا توجد تلميحات أخرى';
+  $('#pHint').disabled = S4.hints >= 3;
+}
+$('#pHint').onclick = () => {
+  if (S4.solved || S4.hints >= 3) return;
+  S4.hints++; renderHints(); SFX.click();
+  const all = $$('#pHintBox .hint'); speakText(all[all.length - 1].textContent, pupOf('g4'));
+};
+
+/* cookie picture (modal) */
+function openCookies(n, d) {
+  const q = Math.floor(n / d), r = n % d;
+  let i = 0;
+  const ck = cls => `<span class="ck pop${cls ? ' ' + cls : ''}" style="animation-delay:${(i++) * 0.03}s;width:22px;height:22px">${COOKIE}</span>`;
+  let html = `<h3>${cN(n)} كعكة على ${cD(d)} أطباق</h3><div class="plates">`;
+  for (let p = 0; p < d; p++) html += `<div class="plate${q > 9 ? ' tall' : ''}" style="--rim:${RIMS[p % RIMS.length]}"><div class="pc">${Array.from({ length: q }, () => ck()).join('')}</div></div>`;
+  html += `</div><div class="tray rem" style="margin-top:22px"><span class="tag">ما بقي بدون طبق</span><div class="pile">${r ? Array.from({ length: r }, () => ck('glow')).join('') : '<span>لا شيء</span>'}</div></div>
+    <p style="font-weight:800">عُدّ: كم كعكة في كل طبق؟ (هذا <span class="cq">خارج القسمة</span>)<br>وكم كعكة بقيت؟ (هذا <span class="cr">الباقي</span>)</p>`;
+  $('#mBody').innerHTML = html;
+  $('#modal').hidden = false;
+  speakText('عُدّ: كم كعكة في كل طبق؟ هذا خارج القسمة. وكم كعكة بقيت؟ هذا الباقي.', pupOf('g4'));
+}
+function closeModal() { $('#modal').hidden = true; }
+$('#pCook').onclick = () => { SFX.click(); if (!S4.solved) S4.hints = Math.max(S4.hints, 1); openCookies(curP.n, curP.d); };
+$('#mClose').onclick = closeModal;
+$('#modal').onclick = e => { if (e.target.id === 'modal') closeModal(); };
+
+/* print worksheet */
+$('#pPrint').onclick = () => {
+  const extraL = ['ز', 'ح', 'ط', 'ي', 'ك', 'ل'];
+  const probs = BOOK.slice();
+  let prev = null;
+  extraL.forEach(l => { prev = randProb(prev); probs.push(Object.assign({ l }, prev)); });
+  $('#sheet').innerHTML = `<h2>القسمة مع الباقي — ورقة تمارين</h2>
+    <div>الاسم: ...................................... &nbsp;&nbsp; التاريخ: ....................</div>
+    <div style="margin-top:8px">تذكّر: <b>الباقي يجب أن يكون دائمًا أصغر من المقسوم عليه.</b></div>
+    <div class="sgrid">${probs.map(p => `<div><b>${p.l})</b> ${toAr(p.n)} ÷ ${toAr(p.d)} = ........ والباقي = ........</div>`).join('')}</div>
+    <div class="skey">مفتاح الإجابات (للكبار): ${probs.map(p => `${p.l}) ${toAr(Math.floor(p.n / p.d))} والباقي ${toAr(p.n % p.d)}`).join(' &nbsp;|&nbsp; ')}</div>`;
+  window.print();
+};
+let resetArmed = 0;
+$('#pResetProg').onclick = () => {
+  const b = $('#pResetProg');
+  if (Date.now() - resetArmed > 4000) {
+    resetArmed = Date.now(); b.textContent = '⚠️ اضغط مرة أخرى لمسح النجوم والتقدّم'; SFX.soft();
+    setTimeout(() => { if (Date.now() - resetArmed >= 4000) b.textContent = '↺ ابدأ من الأول'; }, 4100);
+    return;
+  }
+  resetArmed = 0; b.textContent = '↺ ابدأ من الأول';
+  Object.assign(app, { stars: 0, solved: 0, idx: 0, done: {}, best: 0 }); save(); renderStars(); loadPractice(true);
+};
+
+/* ================= Level 5: bubble game ================= */
+const S5 = { running: false, score: 0, time: 60, q: null, spawnT: 0, tickT: 0, lock: false };
+const GAME_SECS = 60;
+function g5Question() {
+  const d = rnd(2, 9), q = rnd(1, 9), r = rnd(0, d - 1);
+  S5.q = { n: q * d + r, d, q, r };
+  $('#gQ').innerHTML = `${cN(S5.q.n)} ÷ ${cD(d)} ← <b class="cr">الباقي = ؟</b>`;
+  $$('#pond .bub').forEach(b => { b.classList.add('popped'); setTimeout(() => b.remove(), 250); });
+  for (let i = 0; i < 3; i++) setTimeout(() => S5.running && g5Spawn(i === 0), i * 450);
+}
+function g5Value(forceRight) {
+  const { r, d, q } = S5.q;
+  const hasRight = $$('#pond .bub:not(.popped)').some(b => +b.dataset.v === r);
+  if (forceRight || !hasRight || Math.random() < 0.3) return r;
+  const opts = [d, q, r + 1, r + 2, Math.max(0, r - 1), rnd(0, 9), d + 1].filter(v => v !== r && v >= 0 && v <= 12);
+  return pick(opts);
+}
+function g5Spawn(forceRight) {
+  const pond = $('#pond');
+  if ($$('#pond .bub:not(.popped)').length >= 6) return;
+  const v = g5Value(forceRight);
+  const b = document.createElement('button');
+  b.className = 'bub'; b.dataset.v = v;
+  b.setAttribute('aria-label', 'فقاعة ' + v);
+  b.innerHTML = `<span>${toAr(v)}</span>`;
+  const w = pond.clientWidth;
+  b.style.left = Math.max(4, Math.random() * (w - 96)) + 'px';
+  const dur = Math.max(4.2, 8 - S5.score * 0.22) + Math.random() * 1.2;
+  b.style.animationDuration = dur + 's';
+  b.style.setProperty('--rise', (pond.clientHeight + 140) + 'px');
+  b.querySelector('span').style.animationDelay = (-Math.random() * 2) + 's';
+  b.addEventListener('animationend', ev => { if (ev.target === b) b.remove(); });
+  b.addEventListener('pointerdown', ev => { ev.preventDefault(); g5Tap(b); });
+  pond.appendChild(b);
+}
+function g5Tap(b) {
+  if (!S5.running || b.classList.contains('popped') || b.classList.contains('nope') || S5.lock) return;
+  const v = +b.dataset.v, { n, d, r } = S5.q;
+  if (v === r) {
+    S5.lock = true;
+    b.classList.add('popped'); SFX.bubble(); setTimeout(SFX.pop, 80);
+    S5.score++; $('#gScore').textContent = toAr(S5.score);
+    const pr = $('#pond').getBoundingClientRect(), br = b.getBoundingClientRect();
+    const plus = document.createElement('div'); plus.className = 'plus'; plus.textContent = '+١';
+    plus.style.left = (br.left - pr.left + 20) + 'px'; plus.style.top = (br.top - pr.top) + 'px';
+    $('#pond').appendChild(plus); setTimeout(() => plus.remove(), 900);
+    say('g5', `${pick(PRAISE)} ${cN(n)} ÷ ${cD(d)} = ${cQ(Math.floor(n / d))} والباقي ${cR(r)}`, 'happy', false);
+    setTimeout(() => { S5.lock = false; if (S5.running) g5Question(); }, 380);
+  } else {
+    b.classList.add('nope'); SFX.soft();
+    const tip = v >= d
+      ? `${toAr(v)} لا يصلح! الباقي يجب أن يكون <b>أصغر من ${cD(d)}</b>.`
+      : `ليس ${toAr(v)}. ابحث عن أكبر ناتج في جدول ${cD(d)} لا يزيد عن ${cN(n)}، ثم اطرح.`;
+    say('g5', tip, 'sad', false);
+    setTimeout(() => { b.classList.add('popped'); setTimeout(() => b.remove(), 250); }, 600);
+  }
+}
+function g5Start() {
+  ac(); SFX.click();
+  Object.assign(S5, { running: true, score: 0, time: GAME_SECS, lock: false });
+  $('#pondMsg').hidden = true;
+  $('#gScore').textContent = toAr(0);
+  $('#gTime').style.width = '100%';
+  say('g5', 'افقع الفقاعة التي فيها <b class="cr">الباقي</b> الصحيح! بسرعة قبل أن تطير 🎈', 'happy');
+  g5Question();
+  clearInterval(S5.spawnT); clearInterval(S5.tickT);
+  S5.spawnT = setInterval(() => { if (S5.running && !S5.lock) g5Spawn(false); }, 1000);
+  S5.tickT = setInterval(() => {
+    S5.time--; $('#gTime').style.width = (S5.time / GAME_SECS * 100) + '%';
+    if (S5.time <= 0) g5Stop(true);
+  }, 1000);
+}
+function g5Stop(finished) {
+  clearInterval(S5.spawnT); clearInterval(S5.tickT);
+  if (!S5.running) return;
+  S5.running = false;
+  $$('#pond .bub').forEach(b => b.remove());
+  if (!finished) { $('#pondMsg').hidden = false; $('#pondMsg').innerHTML = '<button class="btn mint big" id="gStart">▶ ابدأ اللعبة</button>'; $('#gStart').onclick = g5Start; return; }
+  const newBest = S5.score > app.best;
+  if (newBest) app.best = S5.score;
+  const earned = S5.score > 0 ? Math.min(5, Math.ceil(S5.score / 3)) : 0;
+  save(); markDone(5);
+  $('#gBest').textContent = toAr(app.best);
+  if (earned) addStars(earned);
+  if (S5.score) { confetti(newBest ? 120 : 50); SFX.win(); }
+  $('#pondMsg').hidden = false;
+  $('#pondMsg').innerHTML = `<div class="res">انتهى الوقت! نقاطك<span class="big">${toAr(S5.score)}</span>${newBest && S5.score ? '🏆 رقم قياسي جديد!<br>' : ''}${earned ? `ربحت ${toAr(earned)} ⭐` : 'حاول مرة أخرى!'}</div>
+    <button class="btn mint big" id="gStart">↺ العب مرة أخرى</button>`;
+  $('#gStart').onclick = g5Start;
+  say('g5', S5.score ? `${pick(PRAISE)} فقعت ${toAr(S5.score)} فقاعة صحيحة! هل تقدر أن تكسر رقمك؟` : 'لا بأس! تذكّر: الباقي دائمًا أصغر من المقسوم عليه. جرّب مرة أخرى 💪', S5.score ? 'dance' : 'think');
+}
+$('#gStart').onclick = g5Start;
+document.addEventListener('visibilitychange', () => { if (document.hidden && S5.running) g5Stop(false); });
+
+/* ---------- start ---------- */
+let framed = true; try { framed = window.self !== window.top; } catch (e) {}
+if (framed) $('#pPrint').hidden = true;
+renderStars(); renderMute(); renderSfx();
+$('#gBest').textContent = toAr(app.best);
+$('#gQ').innerHTML = 'افقع <b class="cr">الباقي</b> الصحيح!';
+say('g5', 'في هذه اللعبة يظهر سؤال قسمة، وتطير فقاعات فيها أرقام. افقع الفقاعة التي فيها <b class="cr">الباقي</b> الصحيح! معك دقيقة واحدة ⏱️', 'happy', false);
+setProblem(17, 3);
+loadPractice(false);
+go('home', false);
+})();
+</script>
+</body>
+</html>
